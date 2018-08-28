@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Binary Search · GitBook</title>
+        <title>Random Number · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="random_number.html" />
+    <link rel="next" href="../../part2/README.md" />
     
     
-    <link rel="prev" href="queue.html" />
+    <link rel="prev" href="binary_search.html" />
     
 
     </head>
@@ -156,7 +156,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2.2" data-path="binary_search.html">
+        <li class="chapter " data-level="1.2.2.2" data-path="binary_search.html">
             
                 <a href="binary_search.html">
             
@@ -169,7 +169,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.3" data-path="random_number.html">
+        <li class="chapter active" data-level="1.2.2.3" data-path="random_number.html">
             
                 <a href="random_number.html">
             
@@ -312,7 +312,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Binary Search</a>
+        <a href="../.." >Random Number</a>
     </h1>
 </div>
 
@@ -327,33 +327,53 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="binary-search">Binary Search</h2>
+                                <h2 id="random-number">Random Number</h2>
 <hr>
-<h4 id="1-in-a-increasing-array-find-the-next-bigequal-number-return-its-index">1. In a increasing array, find the next big/equal number. Return its index.</h4>
-<pre><code class="lang-java"><span class="hljs-comment">// Find i, nums[i-1] &lt; x &lt;= nums[i]</span>
-<span class="hljs-keyword">int</span> lo=<span class="hljs-number">0</span>, hi=nums.length-<span class="hljs-number">1</span>;
-<span class="hljs-keyword">while</span>(lo &lt; hi){
-  <span class="hljs-keyword">int</span> mid = lo+(hi-lo)/<span class="hljs-number">2</span>;
-  <span class="hljs-keyword">if</span>(nums[mid]&lt;x) {
-    lo = mid+<span class="hljs-number">1</span>;
-  }<span class="hljs-keyword">else</span> {
-    hi = mid;
-  }
+<p>The code to use the nextInt() method to generate an integer within a range is:  </p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">generateRandomIntIntRange</span><span class="hljs-params">(<span class="hljs-keyword">int</span> min, <span class="hljs-keyword">int</span> max)</span> </span>{
+    Random r = <span class="hljs-keyword">new</span> Random();
+    <span class="hljs-keyword">return</span> r.nextInt((max - min) + <span class="hljs-number">1</span>) + min;
 }
-<span class="hljs-keyword">return</span> hi;
 </code></pre>
-<h4 id="2-in-a-increasing-array-find-the-next-big-number-return-its-index">2. In a increasing array, find the next big number. Return its index.</h4>
-<pre><code class="lang-java"><span class="hljs-comment">// Find i, nums[i-1] &lt;= x &lt; nums[i]</span>
-<span class="hljs-keyword">int</span> lo=<span class="hljs-number">0</span>, hi=nums.length-<span class="hljs-number">1</span>;
-<span class="hljs-keyword">while</span>(lo &lt; hi) {
-  <span class="hljs-keyword">int</span> mid = lo+(hi-lo)/<span class="hljs-number">2</span>;
-  <span class="hljs-keyword">if</span>(nums[mid]&lt;=x) {
-    lo = mid+<span class="hljs-number">1</span>;    
-  }<span class="hljs-keyword">else</span>{
-    hi = mid;
-  }
+<h4 id="shuffle">Shuffle</h4>
+<p>Shuffle cards  </p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shuffle</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] cards)</span> </span>{
+    Random r = <span class="hljs-keyword">new</span> Random();
+    <span class="hljs-keyword">int</span> len = cards.length;
+    <span class="hljs-comment">//swap random card from card[0,...51] with card[51], then </span>
+    <span class="hljs-comment">//swap random card from card[0,...50] with card[50], then </span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=len; i&gt;=<span class="hljs-number">1</span>; i--) {
+        <span class="hljs-keyword">int</span> rand = r.nextInt(<span class="hljs-number">52</span>); <span class="hljs-comment">//generate random num in [0,...,51]</span>
+        swap(card,rand,i);
+    }
 }
-<span class="hljs-keyword">return</span> hi;
+</code></pre>
+<p>Randomly select k number from an array</p>
+<pre><code class="lang-java">
+
+</code></pre>
+<h4 id="reservoir-sampling">Reservoir Sampling</h4>
+<pre><code class="lang-java"><span class="hljs-comment">// call this function to add new sample and return a random sample</span>
+<span class="hljs-comment">// 0, 1, 2, 3, 4, 5</span>
+<span class="hljs-keyword">int</span> totalSample = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> result = <span class="hljs-number">0</span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">ReservoirSampling</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sample)</span> </span>{
+    totalSample ++;
+    <span class="hljs-keyword">int</span> r = random(<span class="hljs-number">1</span>,totalSample);<span class="hljs-comment">//random int from [1,totalSample]</span>
+    <span class="hljs-keyword">if</span>(r==<span class="hljs-number">1</span>) result = sample;
+    <span class="hljs-keyword">return</span> result;
+}
+</code></pre>
+<p>Extend: Randomly select k numbers</p>
+<pre><code class="lang-java"><span class="hljs-keyword">int</span> totalSample = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> result[] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[k];
+<span class="hljs-string">&quot;Initialize all the k samples for the first k input&quot;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] ReservoirSampling(<span class="hljs-keyword">int</span> sample) {
+    totalSample ++;
+    <span class="hljs-keyword">int</span> r = random(<span class="hljs-number">1</span>,totalSample);<span class="hljs-comment">//random int from [1,totalSample]</span>
+    <span class="hljs-keyword">if</span>(r&lt;=k) result[r-<span class="hljs-number">1</span>] = sample;
+    <span class="hljs-keyword">return</span> result;
+}
 </code></pre>
 
                                 
@@ -382,12 +402,12 @@
 
             
                 
-                <a href="queue.html" class="navigation navigation-prev " aria-label="Previous page: Queue">
+                <a href="binary_search.html" class="navigation navigation-prev " aria-label="Previous page: Binary Search">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="random_number.html" class="navigation navigation-next " aria-label="Next page: Random Number">
+                <a href="../../part2/README.md" class="navigation navigation-next " aria-label="Next page: Coding Problem">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -398,7 +418,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Binary Search","level":"1.2.2.2","depth":3,"next":{"title":"Random Number","level":"1.2.2.3","depth":3,"path":"part1/style/random_number.md","ref":"part1/style/random_number.md","articles":[]},"previous":{"title":"Queue","level":"1.2.2.1","depth":3,"path":"part1/style/queue.md","ref":"part1/style/queue.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/binary_search.md","mtime":"2018-08-26T21:54:39.321Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-27T04:40:32.964Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Random Number","level":"1.2.2.3","depth":3,"next":{"title":"Coding Problem","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[{"title":"Dynamic Programming","level":"1.3.1","depth":2,"path":"part2/dp.md","ref":"part2/dp.md","articles":[{"title":"Maximum Balanced Cross","level":"1.3.1.1","depth":3,"path":"part2/dp/maximum_balanced_cross.md","ref":"part2/dp/maximum_balanced_cross.md","articles":[]},{"title":"Merge Stones","level":"1.3.1.2","depth":3,"path":"part2/dp/merge_stones.md","ref":"part2/dp/merge_stones.md","articles":[]}]},{"title":"Recursive Programming","level":"1.3.2","depth":2,"path":"part2/rp.md","ref":"part2/rp.md","articles":[]},{"title":"String","level":"1.3.3","depth":2,"path":"part2/string.md","ref":"part2/string.md","articles":[]}]},"previous":{"title":"Binary Search","level":"1.2.2.2","depth":3,"path":"part1/style/binary_search.md","ref":"part1/style/binary_search.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/random_number.md","mtime":"2018-08-28T01:52:48.960Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-27T04:40:32.964Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
