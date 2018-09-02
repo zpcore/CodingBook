@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Queue · GitBook</title>
+        <title>Sort · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="binary_search.html" />
+    <link rel="next" href="../../part2/README.md" />
     
     
-    <link rel="prev" href="solution_format.html" />
+    <link rel="prev" href="random_number.html" />
     
 
     </head>
@@ -156,7 +156,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2.2" data-path="queue.html">
+        <li class="chapter " data-level="1.2.2.2" data-path="queue.html">
             
                 <a href="queue.html">
             
@@ -195,7 +195,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.5" data-path="sort.html">
+        <li class="chapter active" data-level="1.2.2.5" data-path="sort.html">
             
                 <a href="sort.html">
             
@@ -383,7 +383,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Queue</a>
+        <a href="../.." >Sort</a>
     </h1>
 </div>
 
@@ -398,32 +398,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="queue-in-java">Queue in Java</h2>
+                                <h2 id="sort">Sort</h2>
 <hr>
-<h4 id="stack-lifo">Stack (LIFO)</h4>
-<pre><code class="lang-java">Deque&lt;&gt; stack = <span class="hljs-keyword">new</span> ArrayDeque&lt;&gt;();
+<h3 id="quicksort">Quicksort</h3>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] quickSort(<span class="hljs-keyword">int</span>[] arr) {
+    helper(arr,<span class="hljs-number">0</span>,arr.length-<span class="hljs-number">1</span>);
+    <span class="hljs-keyword">return</span> arr;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">helper</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> end)</span> </span>{
+    <span class="hljs-keyword">if</span>(start&gt;=end) <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">int</span> mid = partition(arr,start,end);
+    helper(arr,start,mid-<span class="hljs-number">1</span>);
+    helper(arr,mid+<span class="hljs-number">1</span>,end);
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">partition</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> lo, <span class="hljs-keyword">int</span> hi)</span> </span>{
+    <span class="hljs-keyword">int</span> pivot = arr[hi]; <span class="hljs-comment">//pivot (Element to be placed at right position)</span>
+    <span class="hljs-keyword">int</span> i = lo; <span class="hljs-comment">//left of i is element smaller than pivot</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j=lo; j&lt;=hi; j++) { <span class="hljs-comment">//element to be processed (include j)</span>
+        <span class="hljs-keyword">if</span> (arr[j] &lt;= pivot)
+            swap(arr, i++ ,j);
+    }
+    <span class="hljs-keyword">return</span> i-<span class="hljs-number">1</span>; <span class="hljs-comment">//return the pivot</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span> </span>{
+    <span class="hljs-keyword">int</span> tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+}
 </code></pre>
-<p>Method Summary:
-empty(), peek(), pop(), push(E item), search(Object o)  </p>
-<p><1,2,3,4,5><br>offer(0)=offerLast(0):<1,2,3,4,5,0><br>push(0)=<0,1,2,3,4,5>  </0,1,2,3,4,5></1,2,3,4,5,0></1,2,3,4,5></p>
-<h4 id="fifo">FIFO</h4>
-<pre><code class="lang-java"> LinkedList&lt;Integer&gt; fifo = <span class="hljs-keyword">new</span> LinkedList();
- Queue&lt;Integer&gt; fifo = <span class="hljs-keyword">new</span> LinkedList();
-</code></pre>
-<p>add,offer (add tail)<br>peek (peek head)<br>remove,poll (remove head)  </p>
-<h4 id="heap">Heap</h4>
-<h5 id="priority-queue">Priority Queue</h5>
-<pre><code class="lang-java">Arrays.sort(intervals, (u1,u2) -&gt; u1.start-u2.start);
-<span class="hljs-comment">//may overflow</span>
-PriorityQueue&lt;Interval&gt; heap=<span class="hljs-keyword">new</span> PriorityQueue&lt;&gt;(intervals.length,(a,b)-&gt;a.end-b.end);
-<span class="hljs-comment">//no overflow</span>
-PriorityQueue&lt;Interval&gt; heap=<span class="hljs-keyword">new</span> PriorityQueue&lt;&gt;((a,b)-&gt;a.val&lt;b.val?-<span class="hljs-number">1</span>:<span class="hljs-number">1</span>);
-</code></pre>
-<h4 id="time-complexity-of-priorityqueue">Time Complexity of Priorityqueue</h4>
-<p>remove() -&gt; This is to remove the head/root, it takes O(logN) time.<br>remove(Object o) -&gt; This is to remove an arbitrary object. Finding this object takes O(N) time, and removing it takes O(logN) time.  </p>
-<h3 id="list-of-list">List of List</h3>
-<pre><code class="lang-java">List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<span class="hljs-comment">//correct</span>
-List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> ArrayList&lt;List&lt;&gt;&gt;();<span class="hljs-comment">//Wrong</span>
+<hr>
+<h3 id="mergesort">Mergesort</h3>
+<pre><code class="lang-java">
+
 </code></pre>
 
                                 
@@ -452,12 +462,12 @@ List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> Arra
 
             
                 
-                <a href="solution_format.html" class="navigation navigation-prev " aria-label="Previous page: Java Solution Format">
+                <a href="random_number.html" class="navigation navigation-prev " aria-label="Previous page: Random Number">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="binary_search.html" class="navigation navigation-next " aria-label="Next page: Binary Search">
+                <a href="../../part2/README.md" class="navigation navigation-next " aria-label="Next page: Coding Problem">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -468,7 +478,7 @@ List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> Arra
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Queue","level":"1.2.2.2","depth":3,"next":{"title":"Binary Search","level":"1.2.2.3","depth":3,"path":"part1/style/binary_search.md","ref":"part1/style/binary_search.md","articles":[]},"previous":{"title":"Java Solution Format","level":"1.2.2.1","depth":3,"path":"part1/style/solution_format.md","ref":"part1/style/solution_format.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/queue.md","mtime":"2018-08-26T21:54:39.320Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-02T21:19:16.080Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Sort","level":"1.2.2.5","depth":3,"next":{"title":"Coding Problem","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[{"title":"Dynamic Programming","level":"1.3.1","depth":2,"path":"part2/dp/dp.md","ref":"part2/dp/dp.md","articles":[{"title":"Maximum Balanced Cross","level":"1.3.1.1","depth":3,"path":"part2/dp/maximum_balanced_cross.md","ref":"part2/dp/maximum_balanced_cross.md","articles":[]},{"title":"Merge Stones","level":"1.3.1.2","depth":3,"path":"part2/dp/merge_stones.md","ref":"part2/dp/merge_stones.md","articles":[]}]},{"title":"Recursive Programming","level":"1.3.2","depth":2,"path":"part2/rp/rp.md","ref":"part2/rp/rp.md","articles":[{"title":"Spiral Matrix","level":"1.3.2.1","depth":3,"path":"part2/rp/spiral_matrix.md","ref":"part2/rp/spiral_matrix.md","articles":[]},{"title":"Kth Smallest of Two Sorted Array","level":"1.3.2.2","depth":3,"path":"part2/rp/kth_smallest_two_sort.md","ref":"part2/rp/kth_smallest_two_sort.md","articles":[]}]},{"title":"String","level":"1.3.3","depth":2,"path":"part2/string.md","ref":"part2/string.md","articles":[]},{"title":"Linked List","level":"1.3.4","depth":2,"path":"part2/linkedlist/linkedlist.md","ref":"part2/linkedlist/linkedlist.md","articles":[]}]},"previous":{"title":"Random Number","level":"1.2.2.4","depth":3,"path":"part1/style/random_number.md","ref":"part1/style/random_number.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/sort.md","mtime":"2018-09-01T19:43:12.377Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-02T21:19:16.080Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

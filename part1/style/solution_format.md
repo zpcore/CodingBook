@@ -1,6 +1,5 @@
-## Solution Format/ Main Function
+## Solution Format
 ***
-
 ```java
 class Solution {
 
@@ -13,5 +12,4 @@ class Solution {
 		...
 	}
 }
-
 ```

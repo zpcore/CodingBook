@@ -28,3 +28,29 @@ while(lo < hi) {
 }
 return hi;
 ```
+### General Case (GOLDEN CODE):
+
+#### 3. Find smallest/largest x that meet with the requirment
+
+nums: A A A A A A A | B B B B B B B  
+FA(x): Funtion returns true if input x is in set A and false in set B.  
+FB(x): Funtion returns true if input x is in set B and false in set A.  
+
+Steps to use binary search:  
+1) Find the seperation function FA(x);  
+2) Decide to find last A or first B.
+```java
+int lo=0, hi=nums.length;
+while(lo < hi){
+  int mid = lo+(hi-lo)/2;
+  if(FA[mid]) // or !FB[mid] (Condition that left part can meet)
+    lo = mid+1;
+  else
+    hi = mid;
+}
+return hi-1;//find largest x in set A, or -1 if none.
+return hi;//find smallest x in set B, or nums.length if none.
+```
+### Binary Search Question
+Leetcode 658. Find K Closest Elements
+

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Maximum Balanced Cross · GitBook</title>
+        <title>Linked List · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="merge_stones.html" />
     
-    
-    <link rel="prev" href="dp.md" />
+    <link rel="prev" href="../string.md" />
     
 
     </head>
@@ -232,7 +230,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="dp.md">
+        <li class="chapter " data-level="1.3.1" data-path="../dp/dp.md">
             
                 <span>
             
@@ -246,9 +244,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1.1" data-path="maximum_balanced_cross.html">
+        <li class="chapter " data-level="1.3.1.1" data-path="../dp/maximum_balanced_cross.html">
             
-                <a href="maximum_balanced_cross.html">
+                <a href="../dp/maximum_balanced_cross.html">
             
                     
                     Maximum Balanced Cross
@@ -259,9 +257,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.1.2" data-path="merge_stones.html">
+        <li class="chapter " data-level="1.3.1.2" data-path="../dp/merge_stones.html">
             
-                <a href="merge_stones.html">
+                <a href="../dp/merge_stones.html">
             
                     
                     Merge Stones
@@ -335,9 +333,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../linkedlist/linkedlist.html">
+        <li class="chapter active" data-level="1.3.4" data-path="linkedlist.html">
             
-                <a href="../linkedlist/linkedlist.html">
+                <a href="linkedlist.html">
             
                     
                     Linked List
@@ -383,7 +381,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Maximum Balanced Cross</a>
+        <a href="../.." >Linked List</a>
     </h1>
 </div>
 
@@ -398,69 +396,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="maximum-balanced-cross">Maximum Balanced Cross</h2>
-<hr>
-<h3 id="question">Question</h3>
-<p>Given a matrix that contains only &apos;0&apos; and &apos;1&apos;. Find the maximum balanced cross in the table. Return its location of the central point. If no result found, return [-1,-1].(balanced cross: cross with same &apos;1&apos;s in the four directions.)</p>
-<h4 id="example">Example</h4>
-<pre><code>0 0 1 0 1
-1 0 1 1 0
-1 1 1 1 1
-0 1 1 0 1
-0 0 1 0 0
-return [2,2]
-</code></pre><h3 id="solution">Solution</h3>
-<p>Dynamic programming. Space O(n^2) if not in place. Time O(n^2). n is the column of the array.</p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] findLargestCross(<span class="hljs-keyword">char</span>[][] matrix) {
-    <span class="hljs-keyword">if</span>(matrix==<span class="hljs-keyword">null</span> || matrix.length==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]{-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>};
-    <span class="hljs-keyword">int</span> m = matrix.length;
-    <span class="hljs-keyword">int</span> n = matrix[<span class="hljs-number">0</span>].length;
-    <span class="hljs-keyword">if</span>(n==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>]{};
-    <span class="hljs-keyword">int</span>[][] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[m][n]; 
-    <span class="hljs-comment">//dp[i][j] min of 1) vertical consective &apos;1&apos;s ending at row i at column j,</span>
-    <span class="hljs-comment">// 2) horizontal consective &apos;1&apos;s.</span>
-    <span class="hljs-keyword">int</span> temp = <span class="hljs-number">0</span>; <span class="hljs-comment">//left/(right) consective &apos;1&apos; end in current position</span>
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;m; i++) {
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>; j&lt;n; j++) {
-            <span class="hljs-keyword">if</span>(matrix[i][j]==<span class="hljs-string">&apos;1&apos;</span>){
-                temp ++;
-                <span class="hljs-keyword">int</span> pre = i==<span class="hljs-number">0</span>?<span class="hljs-number">0</span>:dp[i-<span class="hljs-number">1</span>][j]; <span class="hljs-comment">//corner case        </span>
-                dp[i][j] = pre + <span class="hljs-number">1</span>; 
-            }<span class="hljs-keyword">else</span>{
-                temp = <span class="hljs-number">0</span>;
-                dp[i][j] = <span class="hljs-number">0</span>; <span class="hljs-comment">//unnecesary, because it is initialized as 0</span>
-            }
-            dp[i][j] = Math.min(dp[i][j],temp);
-        }
-        temp = <span class="hljs-number">0</span>;
-    }
-    <span class="hljs-keyword">int</span> max = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">int</span>[] loc = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=m-<span class="hljs-number">1</span>; i&gt;=<span class="hljs-number">0</span>; i--) {
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=n-<span class="hljs-number">1</span>; j&gt;=<span class="hljs-number">0</span>; j--) {
-            <span class="hljs-keyword">int</span> leftTopOne = dp[i][j];
-            <span class="hljs-keyword">if</span>(matrix[i][j]==<span class="hljs-string">&apos;1&apos;</span>) {
-                temp ++;
-                <span class="hljs-keyword">int</span> pre = i==m-<span class="hljs-number">1</span>?<span class="hljs-number">0</span>:dp[i+<span class="hljs-number">1</span>][j]; <span class="hljs-comment">//corner case</span>
-                dp[i][j] =pre + <span class="hljs-number">1</span>;
-            }<span class="hljs-keyword">else</span> {
-                temp = <span class="hljs-number">0</span>;
-                dp[i][j] = <span class="hljs-number">0</span>;
-            }
-            <span class="hljs-keyword">int</span> rightBotOne = Math.max(dp[i][j],temp);
-            <span class="hljs-keyword">int</span> crossSize = Math.min(leftTopOne,rightBotOne);
-            <span class="hljs-keyword">if</span>(corssSize&gt;max) {
-                max = crossSize;
-                loc[<span class="hljs-number">0</span>] = i;
-                loc[<span class="hljs-number">1</span>] = j;
-            }
-        }
-        temp = <span class="hljs-number">0</span>;
-    }
-    <span class="hljs-keyword">if</span>(max==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]{-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>};
-    <span class="hljs-keyword">return</span> loc;
- }
-</code></pre>
+                                <h2 id="linked-list-question">Linked List Question</h2>
+<h4 id="note">Note:</h4>
+<ol>
+<li>Use of DUMMY HEAD:<br>When we are not sure which node is head.</li>
+</ol>
 
                                 
                                 </section>
@@ -488,14 +428,10 @@ return [2,2]
 
             
                 
-                <a href="dp.md" class="navigation navigation-prev " aria-label="Previous page: Dynamic Programming">
+                <a href="../string.md" class="navigation navigation-prev navigation-unique" aria-label="Previous page: String">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="merge_stones.html" class="navigation navigation-next " aria-label="Next page: Merge Stones">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -504,7 +440,7 @@ return [2,2]
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Maximum Balanced Cross","level":"1.3.1.1","depth":3,"next":{"title":"Merge Stones","level":"1.3.1.2","depth":3,"path":"part2/dp/merge_stones.md","ref":"part2/dp/merge_stones.md","articles":[]},"previous":{"title":"Dynamic Programming","level":"1.3.1","depth":2,"path":"part2/dp/dp.md","ref":"part2/dp/dp.md","articles":[{"title":"Maximum Balanced Cross","level":"1.3.1.1","depth":3,"path":"part2/dp/maximum_balanced_cross.md","ref":"part2/dp/maximum_balanced_cross.md","articles":[]},{"title":"Merge Stones","level":"1.3.1.2","depth":3,"path":"part2/dp/merge_stones.md","ref":"part2/dp/merge_stones.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part2/dp/maximum_balanced_cross.md","mtime":"2018-08-26T21:54:39.322Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-02T21:19:16.080Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Linked List","level":"1.3.4","depth":2,"previous":{"title":"String","level":"1.3.3","depth":2,"path":"part2/string.md","ref":"part2/string.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part2/linkedlist/linkedlist.md","mtime":"2018-08-31T20:16:48.781Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-02T21:19:16.080Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
