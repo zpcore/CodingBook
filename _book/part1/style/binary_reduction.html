@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Binary Search · GitBook</title>
+        <title>Binary Reduction · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="random_number.html" />
+    <link rel="next" href="../../part2/README.md" />
     
     
-    <link rel="prev" href="queue.html" />
+    <link rel="prev" href="bucket.html" />
     
 
     </head>
@@ -169,7 +169,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2.3" data-path="binary_search.html">
+        <li class="chapter " data-level="1.2.2.3" data-path="binary_search.html">
             
                 <a href="binary_search.html">
             
@@ -221,7 +221,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.7" data-path="binary_reduction.html">
+        <li class="chapter active" data-level="1.2.2.7" data-path="binary_reduction.html">
             
                 <a href="binary_reduction.html">
             
@@ -428,7 +428,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Binary Search</a>
+        <a href="../.." >Binary Reduction</a>
     </h1>
 </div>
 
@@ -443,51 +443,53 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="binary-search">Binary Search</h2>
+                                <h2 id="binary-reduction">Binary Reduction</h2>
 <hr>
-<h4 id="1-in-a-increasing-array-find-the-next-bigequal-number-return-its-index">1. In a increasing array, find the next big/equal number. Return its index.</h4>
-<pre><code class="lang-java"><span class="hljs-comment">// Find i, nums[i-1] &lt; x &lt;= nums[i]</span>
-<span class="hljs-keyword">int</span> lo=<span class="hljs-number">0</span>, hi=nums.length-<span class="hljs-number">1</span>;
-<span class="hljs-keyword">while</span>(lo &lt; hi){
-  <span class="hljs-keyword">int</span> mid = lo+(hi-lo)/<span class="hljs-number">2</span>;
-  <span class="hljs-keyword">if</span>(nums[mid]&lt;x) {
-    lo = mid+<span class="hljs-number">1</span>;
-  }<span class="hljs-keyword">else</span> {
-    hi = mid;
-  }
+<p>(Use ListNode as the examlple)<br>Apply binary reduction to a group of lists.  </p>
+<h4 id="recursive-top-down">Recursive (top down)</h4>
+<p>Space Complexity: O(lg(n)), n is the length of lists</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">binaryReduction</span><span class="hljs-params">(ListNode[] lists, <span class="hljs-keyword">int</span> s, <span class="hljs-keyword">int</span> e)</span> </span>{
+    <span class="hljs-comment">// at the begining, s=0, e=lists.length-1</span>
+    <span class="hljs-keyword">if</span>(s==e) <span class="hljs-keyword">return</span> lists[s];
+    <span class="hljs-keyword">int</span> mid = s+(e-s)/<span class="hljs-number">2</span>;
+    ListNode n1 = binaryReduction(lists,s,mid);
+    ListNode n2 = binaryReduction(lists,mid+<span class="hljs-number">1</span>,e);
+    lists[s] = reduceTwo(n1,n2);<span class="hljs-comment">//method to reduce two lists.</span>
 }
-<span class="hljs-keyword">return</span> hi;
 </code></pre>
-<h4 id="2-in-a-increasing-array-find-the-next-big-number-return-its-index">2. In a increasing array, find the next big number. Return its index.</h4>
-<pre><code class="lang-java"><span class="hljs-comment">// Find i, nums[i-1] &lt;= x &lt; nums[i]</span>
-<span class="hljs-keyword">int</span> lo=<span class="hljs-number">0</span>, hi=nums.length-<span class="hljs-number">1</span>;
-<span class="hljs-keyword">while</span>(lo &lt; hi) {
-  <span class="hljs-keyword">int</span> mid = lo+(hi-lo)/<span class="hljs-number">2</span>;
-  <span class="hljs-keyword">if</span>(nums[mid]&lt;=x) {
-    lo = mid+<span class="hljs-number">1</span>;    
-  }<span class="hljs-keyword">else</span>{
-    hi = mid;
-  }
+<h4 id="iterative-bottom-up">Iterative (bottom up)</h4>
+<p>Space Complexity: O(1)</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Solution 2</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">mergeKLists</span><span class="hljs-params">(ListNode[] lists)</span> </span>{
+    <span class="hljs-keyword">int</span> length = lists.length;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> width = <span class="hljs-number">1</span>; width&lt;length; width*=<span class="hljs-number">2</span>){
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i+width&lt;length; i+=<span class="hljs-number">2</span>*width) {
+            <span class="hljs-keyword">int</span> left = i, mid = i+width, right = i+<span class="hljs-number">2</span>*width;
+            <span class="hljs-comment">// left: start point of first half; mid: start point of second half;</span>
+            <span class="hljs-comment">// right: end point of the two part (exclusive)</span>
+            ListNode head = mergeTwoLists(lists[left],lists[mid]);
+            lists[left] = head;
+        }
+    }
+    <span class="hljs-keyword">return</span> lists[<span class="hljs-number">0</span>];
 }
-<span class="hljs-keyword">return</span> hi;
 </code></pre>
-<h3 id="general-case-golden-code">General Case (GOLDEN CODE):</h3>
-<h4 id="3-find-smallestlargest-x-that-meet-with-the-requirment">3. Find smallest/largest x that meet with the requirment</h4>
-<p>nums: A A A A A A A | B B B B B B B<br>FA(x): Funtion returns true if input x is in set A and false in set B.<br>FB(x): Funtion returns true if input x is in set B and false in set A.  </p>
-<p>Steps to use binary search:<br>1) Find the seperation function FA(x);<br>2) Decide to find last A or first B.</p>
-<pre><code class="lang-java"><span class="hljs-keyword">int</span> lo=<span class="hljs-number">0</span>, hi=nums.length;
-<span class="hljs-keyword">while</span>(lo &lt; hi){
-  <span class="hljs-keyword">int</span> mid = lo+(hi-lo)/<span class="hljs-number">2</span>;
-  <span class="hljs-keyword">if</span>(FA[mid]) <span class="hljs-comment">// or !FB[mid] (Condition that left part can meet)</span>
-    lo = mid+<span class="hljs-number">1</span>;
-  <span class="hljs-keyword">else</span>
-    hi = mid;
-}
-<span class="hljs-keyword">return</span> hi-<span class="hljs-number">1</span>;<span class="hljs-comment">//find largest x in set A, or -1 if none.</span>
-<span class="hljs-keyword">return</span> hi;<span class="hljs-comment">//find smallest x in set B, or nums.length if none.</span>
-</code></pre>
-<h3 id="binary-search-question">Binary Search Question</h3>
-<p>Leetcode 658. Find K Closest Elements</p>
+<details><summary>deprecated code</summary>
+<p>
+
+```java
+Solution 1 (deprecated)
+public ListNode mergeKLists(ListNode[] lists) {
+    int totList = lists.length;
+    if(totList==0) return null;
+    while(totList&gt;1) { //decrease by half layer by layer until it reaches 1.
+
+        for(int i=0; 2*i<totlist; i++)="" {="" int="" if(2*i+1="=totList)" only="" one="" list="" left="" lists[i]="lists[2*i];" }else="" merge="" two="" lists="" listnode="" head="reduceTwo(lists[2*i],lists[2*i+1]);" }="" totlist="(totList+1)/2;" return="" lists[0];="" ```="" <="" p="">
+</totlist;></p></details>
+
+<h4 id="similar-question">Similar Question</h4>
+<p>LeetCode 23. Merge k Sorted Lists</p>
 
                                 
                                 </section>
@@ -515,12 +517,12 @@
 
             
                 
-                <a href="queue.html" class="navigation navigation-prev " aria-label="Previous page: Queue">
+                <a href="bucket.html" class="navigation navigation-prev " aria-label="Previous page: Bucket">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="random_number.html" class="navigation navigation-next " aria-label="Next page: Random Number">
+                <a href="../../part2/README.md" class="navigation navigation-next " aria-label="Next page: Coding Problem">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -531,7 +533,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Binary Search","level":"1.2.2.3","depth":3,"next":{"title":"Random Number","level":"1.2.2.4","depth":3,"path":"part1/style/random_number.md","ref":"part1/style/random_number.md","articles":[]},"previous":{"title":"Queue","level":"1.2.2.2","depth":3,"path":"part1/style/queue.md","ref":"part1/style/queue.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/binary_search.md","mtime":"2018-09-02T21:20:13.023Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-07T03:54:55.202Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Binary Reduction","level":"1.2.2.7","depth":3,"next":{"title":"Coding Problem","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[{"title":"Dynamic Programming","level":"1.3.1","depth":2,"path":"part2/dp/dp.md","ref":"part2/dp/dp.md","articles":[{"title":"Maximum Balanced Cross","level":"1.3.1.1","depth":3,"path":"part2/dp/maximum_balanced_cross.md","ref":"part2/dp/maximum_balanced_cross.md","articles":[]},{"title":"Merge Stones","level":"1.3.1.2","depth":3,"path":"part2/dp/merge_stones.md","ref":"part2/dp/merge_stones.md","articles":[]}]},{"title":"Recursive Programming","level":"1.3.2","depth":2,"path":"part2/rp/rp.md","ref":"part2/rp/rp.md","articles":[{"title":"Spiral Matrix","level":"1.3.2.1","depth":3,"path":"part2/rp/spiral_matrix.md","ref":"part2/rp/spiral_matrix.md","articles":[]},{"title":"Kth Smallest of Two Sorted Array","level":"1.3.2.2","depth":3,"path":"part2/rp/kth_smallest_two_sort.md","ref":"part2/rp/kth_smallest_two_sort.md","articles":[]}]},{"title":"String","level":"1.3.3","depth":2,"path":"part2/string.md","ref":"part2/string.md","articles":[]},{"title":"Linked List","level":"1.3.4","depth":2,"path":"part2/linkedlist/linkedlist.md","ref":"part2/linkedlist/linkedlist.md","articles":[{"title":"Merge Two Sorted Lists","level":"1.3.4.1","depth":3,"path":"part2/linkedlist/merge_two_sorted_list.md","ref":"part2/linkedlist/merge_two_sorted_list.md","articles":[]}]}]},"previous":{"title":"Bucket","level":"1.2.2.6","depth":3,"path":"part1/style/bucket.md","ref":"part1/style/bucket.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/binary_reduction.md","mtime":"2018-09-07T03:54:42.914Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-07T03:54:55.202Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
