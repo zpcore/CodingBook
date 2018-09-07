@@ -208,6 +208,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.2.6" data-path="bucket.html">
+            
+                <a href="bucket.html">
+            
+                    
+                    Bucket
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -425,6 +438,32 @@ PriorityQueue&lt;Interval&gt; heap=<span class="hljs-keyword">new</span> Priorit
 <pre><code class="lang-java">List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<span class="hljs-comment">//correct</span>
 List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> ArrayList&lt;List&lt;&gt;&gt;();<span class="hljs-comment">//Wrong</span>
 </code></pre>
+<hr>
+<h3 id="reverse-linked-list-within-a-range">Reverse linked list within a range</h3>
+<h4 id="example">Example</h4>
+<pre><code class="lang-java"><span class="hljs-number">1</span> -&gt; <span class="hljs-number">2</span> -|&gt; <span class="hljs-number">3</span> -&gt; <span class="hljs-number">4</span> -&gt; <span class="hljs-number">5</span> -|&gt; <span class="hljs-number">6</span>, input: node <span class="hljs-number">2</span>, nodeNum = <span class="hljs-number">3</span>, <span class="hljs-keyword">return</span>: node <span class="hljs-number">6</span>
+<span class="hljs-number">1</span> -&gt; <span class="hljs-number">2</span> -|&gt; <span class="hljs-number">5</span> -&gt; <span class="hljs-number">4</span> -&gt; <span class="hljs-number">3</span> -|&gt; <span class="hljs-number">6</span>
+</code></pre>
+<h4 id="solution">Solution</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">reverse</span><span class="hljs-params">(ListNode preHead, <span class="hljs-keyword">int</span> nodeNum)</span> </span>{
+    <span class="hljs-comment">// @input: reverse the nodeNum of nodes after preHead</span>
+    <span class="hljs-comment">// @return: the first node right of the reversed area or null</span>
+    ListNode preNode = preHead.next;
+    <span class="hljs-keyword">if</span>(preNode == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    ListNode curNode = preNode.next;
+    <span class="hljs-keyword">if</span>(nodeNum==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> preNode;
+    <span class="hljs-keyword">if</span>(nodeNum==<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> curNode;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;nodeNum-<span class="hljs-number">1</span> &amp;&amp; curNode!=<span class="hljs-keyword">null</span>; i++) {
+        ListNode tmp = curNode.next;
+        curNode.next = preNode;
+        preNode = curNode;
+        curNode = tmp;
+    }
+    preHead.next.next = curNode;
+    preHead.next = preNode;
+    <span class="hljs-keyword">return</span> curNode;
+}
+</code></pre>
 
                                 
                                 </section>
@@ -468,7 +507,7 @@ List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> Arra
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Queue","level":"1.2.2.2","depth":3,"next":{"title":"Binary Search","level":"1.2.2.3","depth":3,"path":"part1/style/binary_search.md","ref":"part1/style/binary_search.md","articles":[]},"previous":{"title":"Java Solution Format","level":"1.2.2.1","depth":3,"path":"part1/style/solution_format.md","ref":"part1/style/solution_format.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/queue.md","mtime":"2018-08-26T21:54:39.320Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-02T21:19:16.080Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Queue","level":"1.2.2.2","depth":3,"next":{"title":"Binary Search","level":"1.2.2.3","depth":3,"path":"part1/style/binary_search.md","ref":"part1/style/binary_search.md","articles":[]},"previous":{"title":"Java Solution Format","level":"1.2.2.1","depth":3,"path":"part1/style/solution_format.md","ref":"part1/style/solution_format.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/queue.md","mtime":"2018-09-04T19:37:28.995Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-04T19:36:44.245Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

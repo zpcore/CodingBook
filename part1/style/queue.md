@@ -39,3 +39,31 @@ remove(Object o) -> This is to remove an arbitrary object. Finding this object t
 List<List<Integer>> res = new ArrayList<>();//correct
 List<List<Integer>> res = new ArrayList<List<>>();//Wrong
 ```
+***
+### Reverse linked list within a range
+#### Example
+```java
+1 -> 2 -|> 3 -> 4 -> 5 -|> 6, input: node 2, nodeNum = 3, return: node 6
+1 -> 2 -|> 5 -> 4 -> 3 -|> 6
+```
+#### Solution
+```java
+public ListNode reverse(ListNode preHead, int nodeNum) {
+    // @input: reverse the nodeNum of nodes after preHead
+    // @return: the first node right of the reversed area or null
+    ListNode preNode = preHead.next;
+    if(preNode == null) return null;
+    ListNode curNode = preNode.next;
+    if(nodeNum==0) return preNode;
+    if(nodeNum==1) return curNode;
+    for(int i=0; i<nodeNum-1 && curNode!=null; i++) {
+        ListNode tmp = curNode.next;
+        curNode.next = preNode;
+        preNode = curNode;
+        curNode = tmp;
+    }
+    preHead.next.next = curNode;
+    preHead.next = preNode;
+    return curNode;
+}
+```

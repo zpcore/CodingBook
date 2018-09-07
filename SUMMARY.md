@@ -8,6 +8,8 @@
         * [Binary Search](part1/style/binary_search.md)
         * [Random Number](part1/style/random_number.md)
         * [Sort](part1/style/sort.md)
+        * [Bucket](part1/style/bucket.md)
+        * [Binary Reduction](part1/style/binary_reduction.md)
 * [Coding Problem](part2/README.md)
     * [Dynamic Programming](part2/dp/dp.md)
         * [Maximum Balanced Cross](part2/dp/maximum_balanced_cross.md)
@@ -17,3 +19,4 @@
         * [Kth Smallest of Two Sorted Array](part2/rp/kth_smallest_two_sort.md)
     * [String](part2/string.md)
     * [Linked List](part2/linkedlist/linkedlist.md)
+        * [Merge Two Sorted Lists](part2/linkedlist/merge_two_sorted_list.md)
