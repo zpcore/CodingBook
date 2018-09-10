@@ -1,0 +1,691 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Optimize Dynamic Programming · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../part2/README.md" />
+    
+    
+    <link rel="prev" href="advanced_topic.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../README.md">
+            
+                <span>
+            
+                    
+                    Coding Notes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../interview_notes.html">
+            
+                <a href="../interview_notes.html">
+            
+                    
+                    Interview Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../style.md">
+            
+                <span>
+            
+                    
+                    Style
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../style/solution_format.html">
+            
+                <a href="../style/solution_format.html">
+            
+                    
+                    Java Solution Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../style/queue.html">
+            
+                <a href="../style/queue.html">
+            
+                    
+                    Queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../style/binary_search.html">
+            
+                <a href="../style/binary_search.html">
+            
+                    
+                    Binary Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../style/random_number.html">
+            
+                <a href="../style/random_number.html">
+            
+                    
+                    Random Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../style/sort.html">
+            
+                <a href="../style/sort.html">
+            
+                    
+                    Sort
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../style/bucket.html">
+            
+                <a href="../style/bucket.html">
+            
+                    
+                    Bucket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="../style/binary_reduction.html">
+            
+                <a href="../style/binary_reduction.html">
+            
+                    
+                    Binary Reduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="advanced_topic.html">
+            
+                <a href="advanced_topic.html">
+            
+                    
+                    Advanced Topic
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.3.1" data-path="optimize_dynamic_programming.html">
+            
+                <a href="optimize_dynamic_programming.html">
+            
+                    
+                    Optimize Dynamic Programming
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../part2/README.md">
+            
+                <span>
+            
+                    
+                    Coding Problem
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../part2/dp/dp.md">
+            
+                <span>
+            
+                    
+                    Dynamic Programming
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../part2/dp/maximum_balanced_cross.html">
+            
+                <a href="../../part2/dp/maximum_balanced_cross.html">
+            
+                    
+                    Maximum Balanced Cross
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../../part2/dp/merge_stones.html">
+            
+                <a href="../../part2/dp/merge_stones.html">
+            
+                    
+                    Merge Stones
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../part2/rp/rp.md">
+            
+                <span>
+            
+                    
+                    Recursive Programming
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../../part2/rp/spiral_matrix.html">
+            
+                <a href="../../part2/rp/spiral_matrix.html">
+            
+                    
+                    Spiral Matrix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../../part2/rp/kth_smallest_two_sort.html">
+            
+                <a href="../../part2/rp/kth_smallest_two_sort.html">
+            
+                    
+                    Kth Smallest of Two Sorted Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../part2/string.md">
+            
+                <span>
+            
+                    
+                    String
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../part2/linkedlist/linkedlist.html">
+            
+                <a href="../../part2/linkedlist/linkedlist.html">
+            
+                    
+                    Linked List
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../../part2/linkedlist/merge_two_sorted_list.html">
+            
+                <a href="../../part2/linkedlist/merge_two_sorted_list.html">
+            
+                    
+                    Merge Two Sorted Lists
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Optimize Dynamic Programming</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="optimize-dynamic-programming">Optimize Dynamic Programming</h2>
+<hr>
+<hr>
+<h4 id="optimize-space-and-remove-corner-cases">Optimize space and remove corner cases</h4>
+<p>Example: Leetcode 518. Coin Change 2<br>1) Original Code:  </p>
+<pre><code class="lang-java"><span class="hljs-comment">// dp[i][j] number of combinations to make up of amount i with coins[0]:coins[j];</span>
+<span class="hljs-comment">// dp[i][j] = with coins[j] to combine + without coins[j] to combine</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-keyword">int</span> amount, <span class="hljs-keyword">int</span>[] coins)</span> </span>{
+    <span class="hljs-keyword">if</span>(amount==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span>(coins.length==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> dp[][] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[amount+<span class="hljs-number">1</span>][coins.length];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=amount; i++) {
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;coins.length;j++) {
+            <span class="hljs-keyword">int</span> withCoinJ = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">if</span>(i&lt;coins[j]) withCoinJ=<span class="hljs-number">0</span>;
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(i==coins[j]) withCoinJ=<span class="hljs-number">1</span>;
+            <span class="hljs-keyword">else</span> withCoinJ=dp[i-coins[j]][j];
+
+            <span class="hljs-keyword">if</span>(j==<span class="hljs-number">0</span>) dp[i][<span class="hljs-number">0</span>] += withCoinJ; <span class="hljs-comment">// use coins[j]</span>
+            <span class="hljs-keyword">else</span> dp[i][j] = withCoinJ+dp[i][j-<span class="hljs-number">1</span>]; <span class="hljs-comment">//without using coins[j]</span>
+
+        }
+    }
+    <span class="hljs-keyword">return</span> dp[amount][coins.length-<span class="hljs-number">1</span>];
+}
+</code></pre>
+<hr>
+<p>2) Remove Corner case: Expand dp array size to cover corner cases
+In this case, we increase j. We should do the following:</p>
+<ul>
+<li>Increase dp[] size from j to j+1</li>
+<li>Shift variable j in for loop by 1</li>
+<li>Shift all the table[j] to table[j-1] in the j for loop</li>
+<li>Remove duplicated corner case checking</li>
+<li><p>Return dp[j+1]</p>
+<pre><code class="lang-java"><span class="hljs-comment">// dp[i][j+1] number of combinations to make up of amount i with coins[0]:coins[j];</span>
+<span class="hljs-comment">// dp[i][j+1] = with coins[j] to combine + without coins[j] to combine</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-keyword">int</span> amount, <span class="hljs-keyword">int</span>[] coins)</span> </span>{
+  <span class="hljs-keyword">if</span>(amount==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">if</span>(coins.length==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">int</span> dp[][] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[amount+<span class="hljs-number">1</span>][coins.length+<span class="hljs-number">1</span>];<span class="hljs-comment">//change</span>
+
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=amount; i++) {
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=coins.length;j++) { <span class="hljs-comment">// change to j=[1,coins.length]</span>
+          <span class="hljs-keyword">int</span> withCoinJ = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">if</span>(i&lt;coins[j-<span class="hljs-number">1</span>]) withCoinJ=<span class="hljs-number">0</span>; <span class="hljs-comment">// change</span>
+          <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(i==coins[j-<span class="hljs-number">1</span>]) withCoinJ=<span class="hljs-number">1</span>; <span class="hljs-comment">// change table[j]</span>
+          <span class="hljs-keyword">else</span> withCoinJ=dp[i-coins[j-<span class="hljs-number">1</span>]][j];
+
+          dp[i][j] = withCoinJ+dp[i][j-<span class="hljs-number">1</span>]; 
+
+      }
+  }
+  <span class="hljs-keyword">return</span> dp[amount][coins.length]; <span class="hljs-comment">// change</span>
+}
+</code></pre>
+</li>
+</ul>
+<hr>
+<p>3) Decrease Dimension: Change the loop sequence
+Can we decrease the rp from two dimension to one dimension? We can see that dp[][j] only depends on dp[][j-1], while dp[i][] depends on dp[0:i-1][]</p>
+<ul>
+<li><p>Switch the j and i loop</p>
+<pre><code class="lang-java"><span class="hljs-comment">// dp[i][j+1] number of combinations to make up of amount i with coins[0]:coins[j];</span>
+<span class="hljs-comment">// dp[i][j+1] = with coins[j] to combine + without coins[j] to combine</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-keyword">int</span> amount, <span class="hljs-keyword">int</span>[] coins)</span> </span>{
+  <span class="hljs-keyword">if</span>(amount==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">if</span>(coins.length==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">int</span> dp[][] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[amount+<span class="hljs-number">1</span>][coins.length+<span class="hljs-number">1</span>];<span class="hljs-comment">//change</span>
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=coins.length;j++) { 
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=amount; i++) {
+          <span class="hljs-keyword">int</span> withCoinJ = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">if</span>(i&lt;coins[j-<span class="hljs-number">1</span>]) withCoinJ=<span class="hljs-number">0</span>; <span class="hljs-comment">// change</span>
+          <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(i==coins[j-<span class="hljs-number">1</span>]) withCoinJ=<span class="hljs-number">1</span>; <span class="hljs-comment">// change table[j]</span>
+          <span class="hljs-keyword">else</span> withCoinJ=dp[i-coins[j-<span class="hljs-number">1</span>]][j];
+
+          dp[i][j] = withCoinJ+dp[i][j-<span class="hljs-number">1</span>]; 
+
+      }
+  }
+  <span class="hljs-keyword">return</span> dp[amount][coins.length]; <span class="hljs-comment">// change</span>
+}
+</code></pre>
+</li>
+<li><p>Remove the dimension that is associated with j</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-keyword">int</span> amount, <span class="hljs-keyword">int</span>[] coins)</span> </span>{
+  <span class="hljs-keyword">if</span>(amount==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">if</span>(coins.length==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">int</span> dp[] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[amount+<span class="hljs-number">1</span>];<span class="hljs-comment">//change</span>
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=coins.length;j++) { 
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=amount; i++) {
+          <span class="hljs-keyword">int</span> withCoinJ = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">if</span>(i&lt;coins[j-<span class="hljs-number">1</span>]) withCoinJ=<span class="hljs-number">0</span>;
+          <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(i==coins[j-<span class="hljs-number">1</span>]) withCoinJ=<span class="hljs-number">1</span>; 
+          <span class="hljs-keyword">else</span> withCoinJ=dp[i-coins[j-<span class="hljs-number">1</span>]]; <span class="hljs-comment">// change </span>
+
+          dp[i] = withCoinJ + dp[i]; <span class="hljs-comment">// change </span>
+      }
+  }
+  <span class="hljs-keyword">return</span> dp[amount]; <span class="hljs-comment">// change</span>
+}
+</code></pre>
+</li>
+<li><p>Check if we can remove corner cases&apos; condition</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">change</span><span class="hljs-params">(<span class="hljs-keyword">int</span> amount, <span class="hljs-keyword">int</span>[] coins)</span> </span>{
+  <span class="hljs-keyword">int</span> dp[] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[amount+<span class="hljs-number">1</span>];
+  dp[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>; <span class="hljs-comment">//change</span>
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=coins.length;j++) { 
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=amount; i++) {
+          <span class="hljs-keyword">int</span> withCoinJ = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">if</span>(i&lt;coins[j-<span class="hljs-number">1</span>]) withCoinJ=<span class="hljs-number">0</span>; <span class="hljs-comment">// change</span>
+          <span class="hljs-keyword">else</span> withCoinJ=dp[i-coins[j-<span class="hljs-number">1</span>]];
+
+          dp[i] = withCoinJ + dp[i];
+      }
+  }
+  <span class="hljs-keyword">return</span> dp[amount];
+</code></pre>
+</li>
+</ul>
+<hr>
+<h5 id="question">Question:</h5>
+<p>Leetcode 188. Best Time to Buy and Sell Stock IV</p>
+<hr>
+<hr>
+<h4 id="reverse-thinking-think-from-end-to-beginning">Reverse thinking: think from end to beginning</h4>
+<h5 id="situation">Situation</h5>
+<p>When the following dp table can affect the previous filling dp table.</p>
+<h5 id="question">Question:</h5>
+<p>Leetcode 312. Burst Balloons</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="advanced_topic.html" class="navigation navigation-prev " aria-label="Previous page: Advanced Topic">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../part2/README.md" class="navigation navigation-next " aria-label="Next page: Coding Problem">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Optimize Dynamic Programming","level":"1.2.3.1","depth":3,"next":{"title":"Coding Problem","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[{"title":"Dynamic Programming","level":"1.3.1","depth":2,"path":"part2/dp/dp.md","ref":"part2/dp/dp.md","articles":[{"title":"Maximum Balanced Cross","level":"1.3.1.1","depth":3,"path":"part2/dp/maximum_balanced_cross.md","ref":"part2/dp/maximum_balanced_cross.md","articles":[]},{"title":"Merge Stones","level":"1.3.1.2","depth":3,"path":"part2/dp/merge_stones.md","ref":"part2/dp/merge_stones.md","articles":[]}]},{"title":"Recursive Programming","level":"1.3.2","depth":2,"path":"part2/rp/rp.md","ref":"part2/rp/rp.md","articles":[{"title":"Spiral Matrix","level":"1.3.2.1","depth":3,"path":"part2/rp/spiral_matrix.md","ref":"part2/rp/spiral_matrix.md","articles":[]},{"title":"Kth Smallest of Two Sorted Array","level":"1.3.2.2","depth":3,"path":"part2/rp/kth_smallest_two_sort.md","ref":"part2/rp/kth_smallest_two_sort.md","articles":[]}]},{"title":"String","level":"1.3.3","depth":2,"path":"part2/string.md","ref":"part2/string.md","articles":[]},{"title":"Linked List","level":"1.3.4","depth":2,"path":"part2/linkedlist/linkedlist.md","ref":"part2/linkedlist/linkedlist.md","articles":[{"title":"Merge Two Sorted Lists","level":"1.3.4.1","depth":3,"path":"part2/linkedlist/merge_two_sorted_list.md","ref":"part2/linkedlist/merge_two_sorted_list.md","articles":[]}]}]},"previous":{"title":"Advanced Topic","level":"1.2.3","depth":2,"path":"part1/advanced_topic/advanced_topic.md","ref":"part1/advanced_topic/advanced_topic.md","articles":[{"title":"Optimize Dynamic Programming","level":"1.2.3.1","depth":3,"path":"part1/advanced_topic/optimize_dynamic_programming.md","ref":"part1/advanced_topic/optimize_dynamic_programming.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/advanced_topic/optimize_dynamic_programming.md","mtime":"2018-09-09T21:30:36.506Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-09T20:47:27.031Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

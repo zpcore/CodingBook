@@ -9,7 +9,10 @@ empty(), peek(), pop(), push(E item), search(Object o)
 <1,2,3,4,5>  
 offer(0)=offerLast(0):<1,2,3,4,5,0>  
 push(0)=<0,1,2,3,4,5>  
+push == addFirst  
+pop == removeFirst  
 
+---
 
 #### FIFO
 ```java
@@ -20,6 +23,8 @@ add,offer (add tail)
 peek (peek head)  
 remove,poll (remove head)  
 
+---
+
 #### Heap
 ##### Priority Queue
 ```java
@@ -29,11 +34,25 @@ PriorityQueue<Interval> heap=new PriorityQueue<>(intervals.length,(a,b)->a.end-b
 //no overflow
 PriorityQueue<Interval> heap=new PriorityQueue<>((a,b)->a.val<b.val?-1:1);
 ```
-#### Time Complexity of Priorityqueue
+##### Time Complexity of Priorityqueue
 remove() -> This is to remove the head/root, it takes O(logN) time.  
 remove(Object o) -> This is to remove an arbitrary object. Finding this object takes O(N) time, and removing it takes O(logN) time.  
 
+##### Heap + Map
+1. sort by key  
+TreeSet(), can also find ceiling(E e), floor(E e)  
+2. sort by value  
+```java
+Map.Entry<Key, Value> entry = new Map.Entry<>();
+Map<Integer, Integer> map = new HashMap<>();
+PriorityQueue<Map.Entry<>> pq = new PriorityQueue<>(a,b->a.getValue()-b.getValue());
+//add Map.Entry to hashmap first and then priority queue
+for(Map.Entry<Integer,Integer> entry: map.entrySet()){
+	pq.add(entry);
+}
+```
 
+---
 ### List of List
 ```java
 List<List<Integer>> res = new ArrayList<>();//correct

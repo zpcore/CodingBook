@@ -239,6 +239,38 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.3" data-path="../advanced_topic/advanced_topic.html">
+            
+                <a href="../advanced_topic/advanced_topic.html">
+            
+                    
+                    Advanced Topic
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../advanced_topic/optimize_dynamic_programming.html">
+            
+                <a href="../advanced_topic/optimize_dynamic_programming.html">
+            
+                    
+                    Optimize Dynamic Programming
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -450,12 +482,14 @@
 </code></pre>
 <p>Method Summary:
 empty(), peek(), pop(), push(E item), search(Object o)  </p>
-<p><1,2,3,4,5><br>offer(0)=offerLast(0):<1,2,3,4,5,0><br>push(0)=<0,1,2,3,4,5>  </0,1,2,3,4,5></1,2,3,4,5,0></1,2,3,4,5></p>
+<p><1,2,3,4,5><br>offer(0)=offerLast(0):<1,2,3,4,5,0><br>push(0)=<0,1,2,3,4,5><br>push == addFirst<br>pop == removeFirst  </0,1,2,3,4,5></1,2,3,4,5,0></1,2,3,4,5></p>
+<hr>
 <h4 id="fifo">FIFO</h4>
 <pre><code class="lang-java"> LinkedList&lt;Integer&gt; fifo = <span class="hljs-keyword">new</span> LinkedList();
  Queue&lt;Integer&gt; fifo = <span class="hljs-keyword">new</span> LinkedList();
 </code></pre>
 <p>add,offer (add tail)<br>peek (peek head)<br>remove,poll (remove head)  </p>
+<hr>
 <h4 id="heap">Heap</h4>
 <h5 id="priority-queue">Priority Queue</h5>
 <pre><code class="lang-java">Arrays.sort(intervals, (u1,u2) -&gt; u1.start-u2.start);
@@ -464,8 +498,22 @@ PriorityQueue&lt;Interval&gt; heap=<span class="hljs-keyword">new</span> Priorit
 <span class="hljs-comment">//no overflow</span>
 PriorityQueue&lt;Interval&gt; heap=<span class="hljs-keyword">new</span> PriorityQueue&lt;&gt;((a,b)-&gt;a.val&lt;b.val?-<span class="hljs-number">1</span>:<span class="hljs-number">1</span>);
 </code></pre>
-<h4 id="time-complexity-of-priorityqueue">Time Complexity of Priorityqueue</h4>
+<h5 id="time-complexity-of-priorityqueue">Time Complexity of Priorityqueue</h5>
 <p>remove() -&gt; This is to remove the head/root, it takes O(logN) time.<br>remove(Object o) -&gt; This is to remove an arbitrary object. Finding this object takes O(N) time, and removing it takes O(logN) time.  </p>
+<h5 id="heap--map">Heap + Map</h5>
+<ol>
+<li>sort by key<br>TreeSet(), can also find ceiling(E e), floor(E e)  </li>
+<li>sort by value  <pre><code class="lang-java">Map.Entry&lt;Key, Value&gt; entry = <span class="hljs-keyword">new</span> Map.Entry&lt;&gt;();
+Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+PriorityQueue&lt;Map.Entry&lt;&gt;&gt; pq = <span class="hljs-keyword">new</span> PriorityQueue&lt;&gt;(a,b-&gt;a.getValue()-b.getValue());
+<span class="hljs-comment">//add Map.Entry to hashmap first and then priority queue</span>
+<span class="hljs-keyword">for</span>(Map.Entry&lt;Integer,Integer&gt; entry: map.entrySet()){
+ pq.add(entry);
+}
+</code></pre>
+</li>
+</ol>
+<hr>
 <h3 id="list-of-list">List of List</h3>
 <pre><code class="lang-java">List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<span class="hljs-comment">//correct</span>
 List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> ArrayList&lt;List&lt;&gt;&gt;();<span class="hljs-comment">//Wrong</span>
@@ -539,7 +587,7 @@ List&lt;List&lt;Integer&gt;&gt; res = <span class="hljs-keyword">new</span> Arra
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Queue","level":"1.2.2.2","depth":3,"next":{"title":"Binary Search","level":"1.2.2.3","depth":3,"path":"part1/style/binary_search.md","ref":"part1/style/binary_search.md","articles":[]},"previous":{"title":"Java Solution Format","level":"1.2.2.1","depth":3,"path":"part1/style/solution_format.md","ref":"part1/style/solution_format.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/queue.md","mtime":"2018-09-04T19:37:28.995Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-07T03:54:55.202Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Queue","level":"1.2.2.2","depth":3,"next":{"title":"Binary Search","level":"1.2.2.3","depth":3,"path":"part1/style/binary_search.md","ref":"part1/style/binary_search.md","articles":[]},"previous":{"title":"Java Solution Format","level":"1.2.2.1","depth":3,"path":"part1/style/solution_format.md","ref":"part1/style/solution_format.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/queue.md","mtime":"2018-09-08T22:20:51.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-09T20:47:27.031Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

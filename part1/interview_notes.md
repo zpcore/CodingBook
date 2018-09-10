@@ -2,7 +2,7 @@
 ***
 
 #### During Interview
-1. Big picture, write down the detailed meaning of the importment variable
+1. Big picture, write down the detailed meaning of the importment variables;
 1. Keep communicating with the interviewer;
 
 #### Before Coding

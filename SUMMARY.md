@@ -10,6 +10,8 @@
         * [Sort](part1/style/sort.md)
         * [Bucket](part1/style/bucket.md)
         * [Binary Reduction](part1/style/binary_reduction.md)
+    * [Advanced Topic](part1/advanced_topic/advanced_topic.md)
+        * [Optimize Dynamic Programming](part1/advanced_topic/optimize_dynamic_programming.md)
 * [Coding Problem](part2/README.md)
     * [Dynamic Programming](part2/dp/dp.md)
         * [Maximum Balanced Cross](part2/dp/maximum_balanced_cross.md)

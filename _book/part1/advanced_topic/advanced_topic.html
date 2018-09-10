@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Random Number · GitBook</title>
+        <title>Advanced Topic · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="sort.html" />
+    <link rel="next" href="optimize_dynamic_programming.html" />
     
     
-    <link rel="prev" href="binary_search.html" />
+    <link rel="prev" href="../style/binary_reduction.html" />
     
 
     </head>
@@ -143,9 +143,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.1" data-path="solution_format.html">
+        <li class="chapter " data-level="1.2.2.1" data-path="../style/solution_format.html">
             
-                <a href="solution_format.html">
+                <a href="../style/solution_format.html">
             
                     
                     Java Solution Format
@@ -156,9 +156,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.2" data-path="queue.html">
+        <li class="chapter " data-level="1.2.2.2" data-path="../style/queue.html">
             
-                <a href="queue.html">
+                <a href="../style/queue.html">
             
                     
                     Queue
@@ -169,9 +169,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.3" data-path="binary_search.html">
+        <li class="chapter " data-level="1.2.2.3" data-path="../style/binary_search.html">
             
-                <a href="binary_search.html">
+                <a href="../style/binary_search.html">
             
                     
                     Binary Search
@@ -182,9 +182,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2.4" data-path="random_number.html">
+        <li class="chapter " data-level="1.2.2.4" data-path="../style/random_number.html">
             
-                <a href="random_number.html">
+                <a href="../style/random_number.html">
             
                     
                     Random Number
@@ -195,9 +195,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.5" data-path="sort.html">
+        <li class="chapter " data-level="1.2.2.5" data-path="../style/sort.html">
             
-                <a href="sort.html">
+                <a href="../style/sort.html">
             
                     
                     Sort
@@ -208,9 +208,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.6" data-path="bucket.html">
+        <li class="chapter " data-level="1.2.2.6" data-path="../style/bucket.html">
             
-                <a href="bucket.html">
+                <a href="../style/bucket.html">
             
                     
                     Bucket
@@ -221,9 +221,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.7" data-path="binary_reduction.html">
+        <li class="chapter " data-level="1.2.2.7" data-path="../style/binary_reduction.html">
             
-                <a href="binary_reduction.html">
+                <a href="../style/binary_reduction.html">
             
                     
                     Binary Reduction
@@ -239,9 +239,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../advanced_topic/advanced_topic.html">
+        <li class="chapter active" data-level="1.2.3" data-path="advanced_topic.html">
             
-                <a href="../advanced_topic/advanced_topic.html">
+                <a href="advanced_topic.html">
             
                     
                     Advanced Topic
@@ -253,9 +253,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.3.1" data-path="../advanced_topic/optimize_dynamic_programming.html">
+        <li class="chapter " data-level="1.2.3.1" data-path="optimize_dynamic_programming.html">
             
-                <a href="../advanced_topic/optimize_dynamic_programming.html">
+                <a href="optimize_dynamic_programming.html">
             
                     
                     Optimize Dynamic Programming
@@ -460,7 +460,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Random Number</a>
+        <a href="../.." >Advanced Topic</a>
     </h1>
 </div>
 
@@ -475,55 +475,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="random-number">Random Number</h2>
-<hr>
-<p>The code to use the nextInt() method to generate an integer within a range is:  </p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">generateRandomIntIntRange</span><span class="hljs-params">(<span class="hljs-keyword">int</span> min, <span class="hljs-keyword">int</span> max)</span> </span>{
-    Random r = <span class="hljs-keyword">new</span> Random();
-    <span class="hljs-keyword">return</span> r.nextInt((max - min) + <span class="hljs-number">1</span>) + min;
-}
-</code></pre>
-<h4 id="shuffle">Shuffle</h4>
-<p>Shuffle cards  </p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shuffle</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] cards)</span> </span>{
-    Random r = <span class="hljs-keyword">new</span> Random();
-    <span class="hljs-keyword">int</span> len = cards.length;
-    <span class="hljs-comment">//swap random card from card[0,...51] with card[51], then </span>
-    <span class="hljs-comment">//swap random card from card[0,...50] with card[50], then </span>
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=len; i&gt;=<span class="hljs-number">1</span>; i--) {
-        <span class="hljs-keyword">int</span> rand = r.nextInt(<span class="hljs-number">52</span>); <span class="hljs-comment">//generate random num in [0,...,51]</span>
-        swap(card,rand,i);
-    }
-}
-</code></pre>
-<p>Randomly select k number from an array</p>
-<pre><code class="lang-java">
-
-</code></pre>
-<h4 id="reservoir-sampling">Reservoir Sampling</h4>
-<pre><code class="lang-java"><span class="hljs-comment">// call this function to add new sample and return a random sample</span>
-<span class="hljs-comment">// 0, 1, 2, 3, 4, 5</span>
-<span class="hljs-keyword">int</span> totalSample = <span class="hljs-number">0</span>;
-<span class="hljs-keyword">int</span> result = <span class="hljs-number">0</span>;
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">ReservoirSampling</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sample)</span> </span>{
-    totalSample ++;
-    <span class="hljs-keyword">int</span> r = random(<span class="hljs-number">1</span>,totalSample);<span class="hljs-comment">//random int from [1,totalSample]</span>
-    <span class="hljs-keyword">if</span>(r==<span class="hljs-number">1</span>) result = sample;
-    <span class="hljs-keyword">return</span> result;
-}
-</code></pre>
-<p>Extend: Randomly select k numbers</p>
-<pre><code class="lang-java"><span class="hljs-keyword">int</span> totalSample = <span class="hljs-number">0</span>;
-<span class="hljs-keyword">int</span> result[] = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[k];
-<span class="hljs-string">&quot;Initialize all the k samples for the first k input&quot;</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] ReservoirSampling(<span class="hljs-keyword">int</span> sample) {
-    totalSample ++;
-    <span class="hljs-keyword">int</span> r = random(<span class="hljs-number">1</span>,totalSample);<span class="hljs-comment">//random int from [1,totalSample]</span>
-    <span class="hljs-keyword">if</span>(r&lt;=k) result[r-<span class="hljs-number">1</span>] = sample;
-    <span class="hljs-keyword">return</span> result;
-}
-</code></pre>
-
+                                
                                 
                                 </section>
                             
@@ -550,12 +502,12 @@
 
             
                 
-                <a href="binary_search.html" class="navigation navigation-prev " aria-label="Previous page: Binary Search">
+                <a href="../style/binary_reduction.html" class="navigation navigation-prev " aria-label="Previous page: Binary Reduction">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="sort.html" class="navigation navigation-next " aria-label="Next page: Sort">
+                <a href="optimize_dynamic_programming.html" class="navigation navigation-next " aria-label="Next page: Optimize Dynamic Programming">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -566,7 +518,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Random Number","level":"1.2.2.4","depth":3,"next":{"title":"Sort","level":"1.2.2.5","depth":3,"path":"part1/style/sort.md","ref":"part1/style/sort.md","articles":[]},"previous":{"title":"Binary Search","level":"1.2.2.3","depth":3,"path":"part1/style/binary_search.md","ref":"part1/style/binary_search.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/random_number.md","mtime":"2018-08-28T01:52:48.960Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-09T20:47:27.031Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Advanced Topic","level":"1.2.3","depth":2,"next":{"title":"Optimize Dynamic Programming","level":"1.2.3.1","depth":3,"path":"part1/advanced_topic/optimize_dynamic_programming.md","ref":"part1/advanced_topic/optimize_dynamic_programming.md","articles":[]},"previous":{"title":"Binary Reduction","level":"1.2.2.7","depth":3,"path":"part1/style/binary_reduction.md","ref":"part1/style/binary_reduction.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/advanced_topic/advanced_topic.md","mtime":"2018-09-09T19:24:34.268Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-09T20:47:27.031Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
