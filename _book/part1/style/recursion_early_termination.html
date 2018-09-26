@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Binary Search · GitBook</title>
+        <title>Recursion Early Termination · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="random_number.html" />
+    <link rel="next" href="../advanced_topic/advanced_topic.html" />
     
     
-    <link rel="prev" href="queue.html" />
+    <link rel="prev" href="binary_reduction.html" />
     
 
     </head>
@@ -169,7 +169,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2.3" data-path="binary_search.html">
+        <li class="chapter " data-level="1.2.2.3" data-path="binary_search.html">
             
                 <a href="binary_search.html">
             
@@ -234,7 +234,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.8" data-path="recursion_early_termination.html">
+        <li class="chapter active" data-level="1.2.2.8" data-path="recursion_early_termination.html">
             
                 <a href="recursion_early_termination.html">
             
@@ -486,7 +486,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Binary Search</a>
+        <a href="../.." >Recursion Early Termination</a>
     </h1>
 </div>
 
@@ -501,51 +501,17 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="binary-search">Binary Search</h2>
+                                <h2 id="recusion-early-termination">Recusion Early Termination</h2>
 <hr>
-<h4 id="1-in-a-increasing-array-find-the-next-bigequal-number-return-its-index">1. In a increasing array, find the next big/equal number. Return its index.</h4>
-<pre><code class="lang-java"><span class="hljs-comment">// Find i, nums[i-1] &lt; x &lt;= nums[i]</span>
-<span class="hljs-keyword">int</span> lo=<span class="hljs-number">0</span>, hi=nums.length-<span class="hljs-number">1</span>;
-<span class="hljs-keyword">while</span>(lo &lt; hi){
-  <span class="hljs-keyword">int</span> mid = lo+(hi-lo)/<span class="hljs-number">2</span>;
-  <span class="hljs-keyword">if</span>(nums[mid]&lt;x) {
-    lo = mid+<span class="hljs-number">1</span>;
-  }<span class="hljs-keyword">else</span> {
-    hi = mid;
-  }
+<p>How to terminate recursion as soon as we got the result?</p>
+<pre><code class="lang-java"><span class="hljs-keyword">boolean</span> stop = <span class="hljs-keyword">false</span>; <span class="hljs-comment">// use global varible</span>
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">recursion</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">if</span>(stop==<span class="hljs-keyword">true</span> || ...) <span class="hljs-keyword">return</span> ... <span class="hljs-comment">// check at base case</span>
+
+    recursion();
 }
-<span class="hljs-keyword">return</span> hi;
 </code></pre>
-<h4 id="2-in-a-increasing-array-find-the-next-big-number-return-its-index">2. In a increasing array, find the next big number. Return its index.</h4>
-<pre><code class="lang-java"><span class="hljs-comment">// Find i, nums[i-1] &lt;= x &lt; nums[i]</span>
-<span class="hljs-keyword">int</span> lo=<span class="hljs-number">0</span>, hi=nums.length-<span class="hljs-number">1</span>;
-<span class="hljs-keyword">while</span>(lo &lt; hi) {
-  <span class="hljs-keyword">int</span> mid = lo+(hi-lo)/<span class="hljs-number">2</span>;
-  <span class="hljs-keyword">if</span>(nums[mid]&lt;=x) {
-    lo = mid+<span class="hljs-number">1</span>;    
-  }<span class="hljs-keyword">else</span>{
-    hi = mid;
-  }
-}
-<span class="hljs-keyword">return</span> hi;
-</code></pre>
-<h3 id="general-case-golden-code">General Case (GOLDEN CODE):</h3>
-<h4 id="3-find-smallestlargest-x-that-meet-with-the-requirment">3. Find smallest/largest x that meet with the requirment</h4>
-<p>nums: A A A A A A A | B B B B B B B<br>FA(x): Funtion returns true if input x is in set A and false in set B.<br>FB(x): Funtion returns true if input x is in set B and false in set A.  </p>
-<p>Steps to use binary search:<br>1) Find the seperation function FA(x);<br>2) Decide to find last A or first B.</p>
-<pre><code class="lang-java"><span class="hljs-keyword">int</span> lo=<span class="hljs-number">0</span>, hi=nums.length;
-<span class="hljs-keyword">while</span>(lo &lt; hi){
-  <span class="hljs-keyword">int</span> mid = lo+(hi-lo)/<span class="hljs-number">2</span>;
-  <span class="hljs-keyword">if</span>(FA[mid]) <span class="hljs-comment">// or !FB[mid] (Condition that left part can meet)</span>
-    lo = mid+<span class="hljs-number">1</span>;
-  <span class="hljs-keyword">else</span>
-    hi = mid;
-}
-<span class="hljs-keyword">return</span> hi-<span class="hljs-number">1</span>;<span class="hljs-comment">//find largest x in set A, or -1 if none.</span>
-<span class="hljs-keyword">return</span> hi;<span class="hljs-comment">//find smallest x in set B, or nums.length if none.</span>
-</code></pre>
-<h3 id="binary-search-question">Binary Search Question</h3>
-<p>Leetcode 658. Find K Closest Elements</p>
 
                                 
                                 </section>
@@ -573,12 +539,12 @@
 
             
                 
-                <a href="queue.html" class="navigation navigation-prev " aria-label="Previous page: Queue">
+                <a href="binary_reduction.html" class="navigation navigation-prev " aria-label="Previous page: Binary Reduction">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="random_number.html" class="navigation navigation-next " aria-label="Next page: Random Number">
+                <a href="../advanced_topic/advanced_topic.html" class="navigation navigation-next " aria-label="Next page: Advanced Topic">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -589,7 +555,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Binary Search","level":"1.2.2.3","depth":3,"next":{"title":"Random Number","level":"1.2.2.4","depth":3,"path":"part1/style/random_number.md","ref":"part1/style/random_number.md","articles":[]},"previous":{"title":"Queue","level":"1.2.2.2","depth":3,"path":"part1/style/queue.md","ref":"part1/style/queue.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/binary_search.md","mtime":"2018-09-02T21:20:13.023Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-12T05:56:36.708Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Recursion Early Termination","level":"1.2.2.8","depth":3,"next":{"title":"Advanced Topic","level":"1.2.3","depth":2,"path":"part1/advanced_topic/advanced_topic.md","ref":"part1/advanced_topic/advanced_topic.md","articles":[{"title":"Optimize Dynamic Programming","level":"1.2.3.1","depth":3,"path":"part1/advanced_topic/optimize_dynamic_programming.md","ref":"part1/advanced_topic/optimize_dynamic_programming.md","articles":[]}]},"previous":{"title":"Binary Reduction","level":"1.2.2.7","depth":3,"path":"part1/style/binary_reduction.md","ref":"part1/style/binary_reduction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part1/style/recursion_early_termination.md","mtime":"2018-09-11T19:17:47.808Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-12T05:56:36.708Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

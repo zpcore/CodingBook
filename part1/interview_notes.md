@@ -12,5 +12,7 @@
 2. Ask for the requirment:
 	Do you want to optimize time or space?
 
+Refer to [LINK](http://www.1point3acres.com/bbs/thread-433722-1-1.html)
+
 #### Special Note
 危险语句：我见过这题，这道题超级简单！（然后打脸）

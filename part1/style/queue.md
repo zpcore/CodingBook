@@ -43,13 +43,14 @@ remove(Object o) -> This is to remove an arbitrary object. Finding this object t
 TreeSet(), can also find ceiling(E e), floor(E e)  
 2. sort by value  
 ```java
-Map.Entry<Key, Value> entry = new Map.Entry<>();
+Map.Entry<Key, Value> entry = new AbstractMap.SimpleEntry(#,#);
 Map<Integer, Integer> map = new HashMap<>();
 PriorityQueue<Map.Entry<>> pq = new PriorityQueue<>(a,b->a.getValue()-b.getValue());
 //add Map.Entry to hashmap first and then priority queue
 for(Map.Entry<Integer,Integer> entry: map.entrySet()){
 	pq.add(entry);
 }
+pq.addAll(map.entrySet());
 ```
 
 ---
