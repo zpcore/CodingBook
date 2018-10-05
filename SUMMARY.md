@@ -13,6 +13,7 @@
         * [Binary Index Tree](part1/style/binary_index_tree.md)
         * [Binary Reduction](part1/style/binary_reduction.md)
         * [Recursion Early Termination](part1/style/recursion_early_termination.md)
+        * [Trie](part1/style/trie.md)
     * [Advanced Topic](part1/advanced_topic/advanced_topic.md)
         * [Optimize Dynamic Programming](part1/advanced_topic/optimize_dynamic_programming.md)
 * [Coding Problem](part2/README.md)
