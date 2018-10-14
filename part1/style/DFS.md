@@ -65,8 +65,25 @@ class Solution {
         
     }
 ```
+#### T3: Iterative DFS
+```java
+// iterative DFS through a graph
+public void dfs(Node root) {
+	if(root==null) return;
+	Deque<Node> stack = ArrayDeque<>();
+	stack.push(root);
+	while(!stack.isEmpty()) {
+		Node curNode = stack.pop();
+		for(Node n: curNode.next()) {
+			if(n!=null) stack.push(n); // check if the node exist.
+			// operation to Node n here:
+		}
+	}
+}
+```
 
-#### T3: Subset and Subsequence
+
+#### T4: Subset and Subsequence
 Use sort for subset
 Cannot use sort for subsequence. Use boolean table or set to get rid of duplicate.
 

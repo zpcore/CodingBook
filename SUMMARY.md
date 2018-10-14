@@ -27,5 +27,6 @@
         * [Spiral Matrix](part2/rp/spiral_matrix.md)
         * [Kth Smallest of Two Sorted Array](part2/rp/kth_smallest_two_sort.md)
     * [String](part2/string.md)
-    * [Linked List](part2/linkedlist/linkedlist.md)
+    * [List](part2/linkedlist/list.md)
         * [Merge Two Sorted Lists](part2/linkedlist/merge_two_sorted_list.md)
+        * [Insert Interval](part2/linkedlist/insert_interval.md)
