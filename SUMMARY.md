@@ -30,3 +30,5 @@
     * [List](part2/linkedlist/list.md)
         * [Merge Two Sorted Lists](part2/linkedlist/merge_two_sorted_list.md)
         * [Insert Interval](part2/linkedlist/insert_interval.md)
+    * [Pointer](part2/pointer/pointer.md)
+        * [Read N Characters Given Read 4](part2/pointer/rncgr4.md)

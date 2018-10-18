@@ -33,6 +33,23 @@ Arrays.sort(intervals, (u1,u2) -> u1.start-u2.start);
 PriorityQueue<Interval> heap=new PriorityQueue<>(intervals.length,(a,b)->a.end-b.end);
 //no overflow
 PriorityQueue<Interval> heap=new PriorityQueue<>((a,b)->a.val<b.val?-1:1);
+
+PriorityQueue<Trie> result = new PriorityQueue<>((a, b) -> {
+        if (a.time != b.time) return b.time - a.time;
+        return a.word.compareTo(b.word);
+    });
+        
+PriorityQueue<ListNode> queue= new PriorityQueue<ListNode>(lists.size(),new Comparator<ListNode>(){
+    @Override
+    public int compare(ListNode o1,ListNode o2){
+        if (o1.val<o2.val)
+            return -1;
+        else if (o1.val==o2.val)
+            return 0;
+        else 
+            return 1;
+    }
+});
 ```
 ##### Time Complexity of Priorityqueue
 remove() -> This is to remove the head/root, it takes O(logN) time.  
@@ -46,6 +63,7 @@ TreeSet(), can also find ceiling(E e), floor(E e)
 Map.Entry<Key, Value> entry = new AbstractMap.SimpleEntry(#,#);
 Map<Integer, Integer> map = new HashMap<>();
 PriorityQueue<Map.Entry<>> pq = new PriorityQueue<>(a,b->a.getValue()-b.getValue());
+
 //add Map.Entry to hashmap first and then priority queue
 for(Map.Entry<Integer,Integer> entry: map.entrySet()){
 	pq.add(entry);
