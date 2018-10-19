@@ -1,6 +1,6 @@
 ## Window Substring
 ---
-This is the templete for solving the window substring problem using two pointers. The template is revised based on [this](https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems)
+This is the templete for solving the window substring problem using two pointers. The template is revised based on [this](https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems.com)
 
 #### Template
 ```java
