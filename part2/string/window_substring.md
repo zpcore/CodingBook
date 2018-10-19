@@ -17,7 +17,6 @@ int findSubstring(string s){
         if(tab[s.charAt(j)]?){  
             cnt?/* modify counter here */ 
             tab[s.charAt(j)]++;
-            j++;
         }
 
         while(/* counter condition */){ 
@@ -31,7 +30,7 @@ int findSubstring(string s){
                 i++; 
             }
         }  
-
+        //len = j-i+1
         /* update d here if finding maximum*/
     }
     return d;

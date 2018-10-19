@@ -35,5 +35,6 @@
         * [Insert Interval](part2/list/insert_interval.md)
         * [Flatten Nested Iterator](part2/list/flatten_nested_iterator.md)
         * [Convert Sorted List to Binary Search Tree](part2/list/convert_sorted_list_to_binary_search_tree.md)
+        * [Sort List](part2/list/sort_list.md)
     * [Pointer](part2/pointer/pointer.md)
         * [Read N Characters Given Read 4](part2/pointer/rncgr4.md)
