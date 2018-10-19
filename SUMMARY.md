@@ -28,6 +28,7 @@
         * [Kth Smallest of Two Sorted Array](part2/rp/kth_smallest_two_sort.md)
     * [String](part2/string.md)
         * [Is Subsequence](part2/string/is_subsequence.md)
+        * [Window Substring](part2/string/window_substring.md)
     * [List](part2/list/list.md)
         * [Reverse List](part2/list/reverse_list.md)
         * [Merge Two Sorted Lists](part2/list/merge_two_sorted_list.md)
