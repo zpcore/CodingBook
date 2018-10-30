@@ -32,7 +32,7 @@ class Solution {
         	// use curNode: 1) to keep track of the start point 2) connect the previous section with next section or NULL
             curNode = dummy; 
 
-            for(int i=0;i<len-w;i+=2*w) { // 0,2
+            for(int i=0;i<len-w;i+=2*w) {
                 // head 1: i; head 2: i+w
                 // each list length: 
                 int len1 = Math.min(w,len-i);
