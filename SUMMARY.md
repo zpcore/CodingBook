@@ -48,5 +48,5 @@
     * [Thread-Safe Queue](part3/thread_safe_queue.md)
 * [Company Interview](part4/README.md)
     * [Facebook](part4/Facebook.md)
-        *[Iterator of K Sorted List](part4/facebook/iterator_of_k_sorted_list.md)
-        *[Deserialize Binary Tree](part4/facebook/deserialize_binary_tree.md)
+        * [Iterator of K Sorted List](part4/facebook/iterator_of_k_sorted_list.md)
+        * [Deserialize Binary Tree](part4/facebook/deserialize_binary_tree.md)
