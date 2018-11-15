@@ -42,5 +42,7 @@
         * [Read N Characters Given Read 4](part2/pointer/rncgr4.md)
     * [Math](part2/math/math.md)
         * [Divide Two Integers](part2/math/divide_two_integers.md)
+    * [Search](part2/search/search.md)
+        * [Search In Rotated Sorted Array](part2/search/search_in_rotated_sorted_array.md)
 * [System Design](part3/README.md)
     * [Thread-Safe Queue](part3/thread_safe_queue.md)
