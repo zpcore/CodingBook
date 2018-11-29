@@ -38,7 +38,7 @@
         * [Sort List](part2/list/sort_list.md)
     * [Tree](part2/tree/tree.md)
         * [Binary Search Tree Operation](part2/tree/binary_search_tree_operation.md)
-        * [Inorder Successor in Binary Search Tree](part2/tree/binary_search_tree_operation.md)
+        * [Inorder Successor in Binary Search Tree](part2/tree/inorder_successsor_in_bst.md)
     * [Pointer](part2/pointer/pointer.md)
         * [Read N Characters Given Read 4](part2/pointer/rncgr4.md)
     * [Math](part2/math/math.md)
@@ -55,3 +55,4 @@
         * [Alien Dictionary (Mutation)](part4/facebook/alien_dictionary.md)
         * [Previous Smaller Element (Mutation)](part4/facebook/previous_smaller_element.md)
         * [Sink All Zero](part4/facebook/sink_all_zero.md)
+        * [Meeting Room](part4/facebook/meeting_room.md)
