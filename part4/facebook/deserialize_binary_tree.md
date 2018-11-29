@@ -20,12 +20,11 @@ String "4(5(7,8),9)" represents the tree:
 
 #### Solution
 ```java
-index = 0
+int index = 0; // global variable to record the processing character during recursion
 
 public TreeNode deserialize(String s) {
 	return helper(s)[0];
 }
-
 
 private TreeNode[] helper(String s) { 
 	// Always skip the last ')' before return;
