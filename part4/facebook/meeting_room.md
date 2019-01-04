@@ -9,9 +9,10 @@ Follow up 253, assign the meeting to each room. (output one result is fine.)
 
 
 #### Solution
-When we check a new meeting interval, there are two cases:
-1. Open a new room
-2. Use an empty meeting room
+When we check a new meeting interval, there are two cases:  
+1. Open a new room  
+2. Use an empty meeting room  
+
 Notes: 
 We use deque to record which room is currently empty.  
 Use hashmap (meeting interval -> room number), so we know when a meeting end, which room will be released (empty).  
