@@ -57,7 +57,7 @@
         * [Sink All Zero](part4/facebook/sink_all_zero.md)
         * [Meeting Room](part4/facebook/meeting_room.md)
         * [Inorder Traverse without Stack](part4/facebook/inorder_traverse_without_stack.md)
-        * [Minimum Water Level Cannot Pass](part4/facebook/min_water_level_cannot_pass.md.md)
+        * [Minimum Water Level Cannot Pass](part4/facebook/min_water_level_cannot_pass.md)
     * [Google](part4/google/google.md)
         * [Infiltrate a Binary Tree](part4/google/infiltrate_a_binary_Tree.md)
         * [Find Number of Intersection](part4/google/find_number_of_intersection.md)
