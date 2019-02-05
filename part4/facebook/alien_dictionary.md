@@ -1,5 +1,5 @@
 ## Alien Dictionary (Leetcode 269 mutation) (Correctness Unchecked)
-Easy version of Leetcode 269
+Simplify version of Leetcode 269
 ---
 
 #### Question
