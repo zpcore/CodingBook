@@ -2,6 +2,8 @@
 
 * [Coding Notes](part1/README.md)
     * [Interview Notes](part1/interview_notes.md)
+    * [Template](part1/template/template.md)
+        * [Sliding Window](part1/template/sliding_window.md)
     * [Style(java)](part1/style.md)
         * [Java Solution Format](part1/style/solution_format.md)
         * [Queue](part1/style/queue.md)
@@ -20,6 +22,7 @@
         * [Comparator](part1/cpp_style/comparator_cpp.md)
         * [Hashing](part1/cpp_style/hashing.md)
         * [Operator Overload](part1/cpp_style/op_overload.md)
+        * [Set and Map](part1/cpp_style/map_and_set.md)
     * [Advanced Topic](part1/advanced_topic/advanced_topic.md)
         * [Optimize Dynamic Programming](part1/advanced_topic/optimize_dynamic_programming.md)
 * [Coding Problem](part2/README.md)
@@ -66,5 +69,6 @@
     * [Google](part4/google/google.md)
         * [Infiltrate a Binary Tree](part4/google/infiltrate_a_binary_Tree.md)
         * [Find Number of Intersection](part4/google/find_number_of_intersection.md)
+        * [Connect Water Pipe](part4/google/connect_water_pipe.md)
 * [New Question](part5/new_question.md)
     *[First Smaller Element after Itself](part5/first_smaller_element_after_itself.md)
