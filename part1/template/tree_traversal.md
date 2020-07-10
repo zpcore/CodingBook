@@ -1,11 +1,11 @@
 # Tree Traversal
 
 ### Idea behind using a stack
-This depends on when do we add the node to the result. There are two case: 
-1) Add the treenode to the result whenever a node is **pushed** into the stack.
-2) ..............................................    **poped** out of the stack.
-First case follows the traverse sequence;
-Second case follows likely a reversed traversed sequence;
+This depends on when do we add the node to the result. There are two case:  
+1) Add the treenode to the result whenever a node is **pushed** into the stack.  
+2) ..............................................    **poped** out of the stack.  
+First case follows the traverse sequence;  
+Second case follows likely a reversed traversed sequence;  
 
 ```c++
 std::vector<TreeNode*> inorderTraversal(TreeNode* root) {
