@@ -4,6 +4,7 @@
     * [Interview Notes](part1/interview_notes.md)
     * [Template](part1/template/template.md)
         * [Sliding Window](part1/template/sliding_window.md)
+        * [Tree Traversal](part1/template/tree_traversal.md)
     * [Style(java)](part1/style.md)
         * [Java Solution Format](part1/style/solution_format.md)
         * [Queue](part1/style/queue.md)
