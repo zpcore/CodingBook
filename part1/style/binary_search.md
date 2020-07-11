@@ -51,6 +51,26 @@ while(lo < hi){
 return hi-1;//find largest x in set A, or -1 if none.
 return hi;//find smallest x in set B, or nums.length if none.
 ```
+
+### Ultra Golden code:
+In this case, we conside the limitation.  
+```c++
+// assume i is limited by [lb:ub]
+int lo = lb, hi = ub+1;
+while(lo<hi){
+  int mid = lo+(hi-lo)/2;
+  if(FC[mid] || FA[mid]) // or !FB[mid] (Condition that left part can meet)
+    //FC[] is the left most bound judge function that FA[] cannot judge (usually due to array index "mid" out of left boundry)
+    lo = mid+1;
+  else
+    hi = mid;
+}
+return hi-1;//find largest x in set A, or lb-1 if none.
+return hi;//find smallest x in set B, or ub if none.
+```
+
 ### Binary Search Question
 Leetcode 658. Find K Closest Elements
+Leetcode 4. Median of Two Sorted Arrays (with limit)
+Leetcode 1095. Find in Mountain Array (with limit)
 
