@@ -6,7 +6,15 @@ This depends on when do we add the node to the result. There are two case:
 1) Add the treenode to the result whenever a node is **pushed** into the stack.  
 2) ..............................................    **poped** out of the stack.  
 First case follows the traverse sequence;  
-Second case follows likely a reversed traversed sequence.  
+Second case follows likely a reversed traversed sequence.
+
+Key point of using the stack:  
+1) push: when discovering a new node, and we need to traverse it later;  
+2) pop: when we don't need the info of this node any more.  
+
+Key point of tracing:
+1) All traverse follow the order from ancestor to child node, no exception! (that's why we always dive into the deepest left first.)  
+2) Difference is that when we add the node to result. right after push or pop?  
 
 ```c++
 std::vector<TreeNode*> inorderTraversal(TreeNode* root) {
@@ -27,6 +35,7 @@ std::vector<TreeNode*> inorderTraversal(TreeNode* root) {
     return res;
 }
 
+// not suggested
 std::vector<TreeNode*> preorderTraversal(TreeNode* root) {
     // key: layer by layer
     std::vector<TreeNode*> res;
