@@ -75,5 +75,6 @@
         * [Infiltrate a Binary Tree](part4/google/infiltrate_a_binary_Tree.md)
         * [Find Number of Intersection](part4/google/find_number_of_intersection.md)
         * [Connect Water Pipe](part4/google/connect_water_pipe.md)
+        * [Connect Water Pipe](part4/google/compress_2d_array.md)
 * [New Question](part5/new_question.md)
     *[First Smaller Element after Itself](part5/first_smaller_element_after_itself.md)

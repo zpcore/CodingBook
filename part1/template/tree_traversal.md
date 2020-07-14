@@ -16,6 +16,30 @@ Key point of tracing:
 1) All traverse follow the order from ancestor to child node, no exception! (that's why we always dive into the deepest left first.)  
 2) Difference is that when we add the node to result. right after push or pop?  
 
+Thus I provide the following template for inorder and preorder:  
+```c++
+std::vector<TreeNode*> goldenTraversal(TreeNode* root) {
+    // key: keep diving to the left
+    std::vector<TreeNode*> res;
+    std::stack<TreeNode*> stack; // stores the node that hasn't traced the right branch 
+    TreeNode* curNode = root;
+    while(!stack.empty() || curNode) {
+        while (curNode) {
+            stack.push(curNode);
+            //res.push_back(curNode); // preorder use this one
+            curNode = curNode->left;
+        }
+        curNode = stack.top();
+        stack.pop();
+        //res.push_back(curNode); // inorder use this one
+        curNode = curNode->right;
+    }
+    return res;
+}
+```
+For postorder, key point is to pop the node only when right child has been traversed.
+---
+
 ```c++
 std::vector<TreeNode*> inorderTraversal(TreeNode* root) {
     // key: keep diving to the left
@@ -24,7 +48,7 @@ std::vector<TreeNode*> inorderTraversal(TreeNode* root) {
     TreeNode* curNode = root;
     while(!stack.empty() || curNode) {
         while (curNode) {
-            stack.push_back(curNode); 
+            stack.push(curNode); 
             curNode = curNode->left;
         }
         curNode = stack.top();
