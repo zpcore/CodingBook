@@ -70,7 +70,8 @@ return hi;//find smallest x in set B, or ub if none.
 ```
 
 ### Binary Search Question
-Leetcode 658. Find K Closest Elements
-Leetcode 4. Median of Two Sorted Arrays (with limit)
-Leetcode 1095. Find in Mountain Array (with limit)
+Leetcode 658. Find K Closest Elements  
+Leetcode 4. Median of Two Sorted Arrays (with limit)  
+Leetcode 162. Find Peak Element (with limit)
+Leetcode 1095. Find in Mountain Array (with limit)  
 

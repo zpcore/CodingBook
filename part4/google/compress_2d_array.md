@@ -120,7 +120,7 @@ vector<vector<int>> compress2dArray(vector<vector<int>>& vec) {
 }
 ```
 ###Solution 2
-The whole graph can be constructed into a DAG, where the priority of element element is decided by its row and column.
+The whole graph can be constructed into a DAG, where the priority of element element is decided by its row and column. Time complexity O(r\*c\*log(r\*c)).
 ```c++
 vector<vector<int>> compress2dArray(vector<vector<int>>& vec) {
     int m = vec.size(), n = vec[0].size();

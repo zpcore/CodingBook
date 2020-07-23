@@ -7,7 +7,7 @@ This depends on when do we add the node to the result. There are two case:
 2) ..............................................    **poped** out of the stack.  
 First case follows the traverse sequence;  
 Second case follows likely a reversed traversed sequence.
-
+t
 Key point of using the stack:  
 1) push: when discovering a new node, and we need to traverse it later;  
 2) pop: when we don't need the info of this node any more.  
