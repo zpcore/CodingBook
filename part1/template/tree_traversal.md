@@ -59,16 +59,17 @@ std::vector<TreeNode*> inorderTraversal(TreeNode* root) {
     return res;
 }
 
-// not suggested
-std::vector<TreeNode*> preorderTraversal(TreeNode* root) {
+std::vector<TreeNode*> preorderTraversal(TreeNode* root) { // can this be applied to inorder?
     // key: layer by layer
     std::vector<TreeNode*> res;
-    std::stack<TreeNode*> stack; // stores the node that hasn't traced the right branch 
+    if (root==NULL)
+        return res;
+    std::stack<TreeNode*> stack; // stores the node that hasn't traced in the right branch 
     stack.push(root);    
     while(!stack.empty()) {
         TreeNode* curNode = stack.top();
         stack.pop();
-        res.push_back(curNode);
+        res.push_back(curNode); // preorder
         if (curNode->right)
             stack.push(curNode->right);
         if (curNode->left)
@@ -79,43 +80,6 @@ std::vector<TreeNode*> preorderTraversal(TreeNode* root) {
 }
 ```
 
-```c++
-std::vector<TreeNode*> inorderTraversal(TreeNode* root) {
-    std::vector<TreeNode*> res;
-    std::stack<TreeNode*> stack;
-    TreeNode* curNode = root;
-    while (!stack.empty() || curNode!=NULL) {
-        if (curNode) {
-            stack.push(curNode);
-            // res.push_back(curNode); // preorder use this one
-            curNode = curNode->left;
-        } else {
-            TreeNode* tmp = stack.top();
-            stack.pop();
-            res.push_back(tmp); // inorder use this one
-            curNode = curNode->right;
-        }
-    }
-}
-
-std::vector<TreeNode*> preorderTraversal(TreeNode* root) {
-    std::vector<TreeNode*> res;
-    std::stack<TreeNode*> stack;
-    TreeNode* curNode = root;
-    while(!stack.empty() || curNode) {
-        if (curNode!=NULL) {
-            stack.push(curNode);
-            res.push_back(curNode);
-            curNode = curNode->left;
-        } else {
-            TreeNode* tmp = stack.top();
-            stack.pop();
-            curNode = tmp->right;
-        }
-    }
-    return res;
-}
-```
 
 ```c++
 std::vector<TreeNode*> postorderTraversal(TreeNode* root) {
@@ -140,5 +104,51 @@ std::vector<TreeNode*> postorderTraversal(TreeNode* root) {
         }
     }
     return res;
+}
+
+vector<int> postorderTraversal(TreeNode* root) {
+    stack<pair<TreeNode*, bool>> sta; // bool -> visited or not
+    vector<int> res;
+    if (root==NULL)
+        return res;
+    TreeNode* cur = root;
+    sta.emplace(root, false);
+    while(!sta.empty()) {
+        auto top = sta.top();
+        TreeNode* cur = top.first;
+        sta.pop();
+        if (top.second) // already visited all its children
+            res.push_back(cur->val);
+        else {
+            sta.emplace(cur, true);
+            if(cur->right)
+                sta.emplace(cur->right, false);
+            if (cur->left)
+                sta.emplace(cur->left, false);
+        }
+        
+    }
+    return res;
+}
+```
+---
+Not suggested:  
+```c++
+std::vector<TreeNode*> inorderTraversal(TreeNode* root) {
+    std::vector<TreeNode*> res;
+    std::stack<TreeNode*> stack;
+    TreeNode* curNode = root;
+    while (!stack.empty() || curNode!=NULL) {
+        if (curNode) {
+            stack.push(curNode);
+            // res.push_back(curNode); // preorder use this one
+            curNode = curNode->left;
+        } else {
+            TreeNode* tmp = stack.top();
+            stack.pop();
+            res.push_back(tmp); // inorder use this one
+            curNode = curNode->right;
+        }
+    }
 }
 ```
