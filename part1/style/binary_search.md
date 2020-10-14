@@ -66,7 +66,7 @@ while(lo<hi){
     hi = mid;
 }
 return hi-1;//find largest x in set A, or lb-1 if none.
-return hi;//find smallest x in set B, or ub if none.
+return hi;//find smallest x in set B, or ub+1 if none.
 ```
 
 ### Binary Search Question
