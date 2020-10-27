@@ -33,3 +33,15 @@ vector<string> split(const string &str, const string& pattern) {
 }
 
 ```
+
+#### 4. Find repetitive substring
+E.g., s="abcabcabc" is reprtitive based on "abc".
+```c++
+string repetitiveSubstring(const string& s) {
+    int pos = (s+s).find(s,1);
+    if ( pos < s.size() ) { // has substring repetition in s
+        return s.substr(0, pos);
+    }
+    return "";
+}
+```
