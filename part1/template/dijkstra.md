@@ -2,7 +2,6 @@
 
 Finding the shortest path in the graph. (Must be positive edge weights)
 
-(not tested yet)
 ```c++
 using pii = pair<int, int>;
 unordered_map<int, vector<pii>> graph; // node -> vector of <neighbour node, edge weight>
