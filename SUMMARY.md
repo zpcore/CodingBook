@@ -20,6 +20,7 @@
         * [KMP](part1/template/KMP.md)       
         * [Rolling Hash](part1/template/rolling_hash.md)
         * [Parenthesis Decoding](part1/template/par_decode.md)
+        * [Sieve of Eratosthenes](part1/template/sieve.md)
     * [Style(java)](part1/style.md)
         * [Java Solution Format](part1/style/solution_format.md)
         * [Queue](part1/style/queue.md)
