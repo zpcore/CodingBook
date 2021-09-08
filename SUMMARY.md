@@ -39,6 +39,7 @@
         * [Set and Map](part1/cpp_style/map_and_set.md)
         * [Multithread](part1/cpp_style/multithread.md)
         * [Map](part1/cpp_style/map.md)
+        * [Std](part1/cpp_style/std.md)
     * [Style(python)]
         * [grammar](part1/python_style/python_grammar.md)
     * [Advanced Topic](part1/advanced_topic/advanced_topic.md)
