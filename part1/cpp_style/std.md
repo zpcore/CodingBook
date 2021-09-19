@@ -17,7 +17,7 @@ partial_sum(vec.rbegin(), vec.rend(), vec.rbegin()); // 10, 9, 7, 4
 acccumulate
 ```c++
 //vector<vecctor<int>> vec = {{1,2}, {3,4}, {4,5}};
-int s = accumulate(vec.begin(), grid.end(), 0, [](int init, const std::vector<int>& v){
+int s = accumulate(vec.begin(), vec.end(), 0, [](int init, const std::vector<int>& v){
     return init + v[1]; 
 }); // 2+4+5
 ```
