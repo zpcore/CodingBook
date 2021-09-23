@@ -21,6 +21,7 @@
         * [Rolling Hash](part1/template/rolling_hash.md)
         * [Parenthesis Decoding](part1/template/par_decode.md)
         * [Sieve of Eratosthenes](part1/template/sieve.md)
+        * [Math](part1/template/math.md)
         * [BFS](part1/template/bfs.md)
     * [Style(java)](part1/style.md)
         * [Java Solution Format](part1/style/solution_format.md)

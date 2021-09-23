@@ -26,4 +26,38 @@ int bbfs(int n1, int n2, unordered_map<int,vector<int>>& g) {
     }
     return -1;
 }
+
+
+vector<int> getOrigArray(vector<int> nums) {
+    int n = nums.size();
+    unordered_map<int, int> d2c;
+    for (int i: nums)
+        d2c++;
+    vector<int> ret;
+    for (int i: nums) {
+        // build the chain
+        int cur = i;
+        while(cur%2==0 && d2c.find(cur)!=d2c.end()) {
+            cur = cur/2;
+        }
+        if (cur==i)
+            continue;
+        // now cur is the last element in the chain. It's guaranteed cur is not a double of any number in nums (belongs to the original array)
+        // eliminate elements in the chain into ret
+        for (; cur<i; cur<<=1) {
+            if (d2c.find(cur)==d2c.end())
+                continue;
+            int usedAsOrig = d2c[cur];
+            d2c.erase(cur);
+            ret.insert(ret.end(), usedAsOrig, cur);
+            if (cur==i)
+                break;
+            d2c[2*cur]-=usedAsOrig;
+        }
+        
+        if (d2c.size()==0)
+            break;
+    }
+    return ret;
+}
 ```
