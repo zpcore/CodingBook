@@ -100,6 +100,8 @@
         * [Minimal Meeting Room Schedule](part4/google/minMeetingRoomSchedule.md)
         * [Raindrop](part4/google/raindrop.md)
         * [Overlap Interval](part4/google/overlapInterval.md)
+        * [Train Schedule](part4/google/canReachDestination.md)
+        * [Truncate Message](part4/google/truncateMessage.md)
 * [New Question](part5/new_question.md)
     * [First Smaller Element after Itself](part5/first_smaller_element_after_itself.md)
 * [Behavior Question](part6/bahavior_question.md)
