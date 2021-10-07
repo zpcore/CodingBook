@@ -121,7 +121,7 @@ vector<vector<int>> generate_sequences(int cur_lvl, unordered_map<int, vector<in
     do {
         auto tmp = generate_sequences(nxt_lvl, lvl2nodes);
         if (tmp.size()==0) {
-            ret.push_back({});
+            ret.pu sh_back({});
             auto& ref = ret.back();
             ref.insert(ref.end(), comb.begin(), comb.end());
         } else {
