@@ -36,3 +36,23 @@ print(q[0]) #smallest element
 # with custom priority
 heappush(q, (10, task1)) # 10 is the priority
 ```
+
+#### Binary search tree
+```python
+# pip install sortedcontainers
+from sortedcontainers import SortedList
+sl = SortedList([10, 11, 12, 13, 14])
+# sl = SortedList(key=lambda x: -x)
+sl.bisect_left(12) # return 2, like C++ lower_bound
+sl.bisect_right(12) # return 3, like C++ upper_bound
+SortedList.remove(10) # value must be a member, or use discard() 
+SortedList.add(5)
+```
+
+
+#### Bisect (maintain a list in sorted order)
+```python
+a = [1,2,4,6]
+bisect.bisect_left(a, x, lo=0, hi=len(a), *, key=None)
+bisect.bisect_right(a, x, lo=0, hi=len(a), *, key=None
+```
