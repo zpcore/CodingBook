@@ -85,7 +85,10 @@ if [ -x /usr/bin/dircolors ]; then
     #alias egrep='egrep --color=auto'
 fi
 
+
+# custom function:
 # find all .cc, .cpp, .h, .c file that contains the keywords
+export GREP_COLORS='ms=01;31'
 cfind() {
     find "$1" -type f \( -name "*.cc" -o -name "*.cpp" -o -name "*.c" -o -name "*.h" \) -exec grep --color=auto -rnHi "$2" {} \;
 }
