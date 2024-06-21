@@ -43,7 +43,7 @@
         * [Multithread](part1/cpp_style/multithread.md)
         * [Map](part1/cpp_style/map.md)
         * [Std](part1/cpp_style/std.md)
-    * [Style(python)]
+    * [Style(python)](part1/python_style/style_python.md)
         * [grammar](part1/python_style/python_grammar.md)
     * [Advanced Topic](part1/advanced_topic/advanced_topic.md)
         * [Optimize Dynamic Programming](part1/advanced_topic/optimize_dynamic_programming.md)
@@ -105,3 +105,5 @@
 * [New Question](part5/new_question.md)
     * [First Smaller Element after Itself](part5/first_smaller_element_after_itself.md)
 * [Behavior Question](part6/bahavior_question.md)
+* [Code Env Config](part7/code_config.md)
+    * [Shell](part7/code_config/shell.md)
