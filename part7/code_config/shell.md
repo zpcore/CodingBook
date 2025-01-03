@@ -96,4 +96,14 @@ cfind() {
 pfind() {
     find "$1" -type f \( -name "*.py" \) -exec grep --color=auto -rnHi "$2" {} \;
 }
+
+# If you are using conda env with vscode, wrap the auto generated `conda initialize` with the following condition to prevent "Turtles all the way down".
+if [[ ${CONDA_SHLVL:-0} -eq 0 ]]; then
+    # >>> conda initialize >>>
+    # ...
+    # <<< conda initialize <<<
+fi
+
+
+
 ```
