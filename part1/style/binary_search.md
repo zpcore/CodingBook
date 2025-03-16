@@ -1,5 +1,6 @@
 ## Binary Search
 ***
+**Note: for `mid`, considering the negative case, use `mid=lo+(hi-lo)/2`, never use `mid=(lo+hi)/2!!!`, check [kth-smallest-element-in-a-sorted-matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) as an example**
 #### 1. In a increasing array, find the next big/equal number. Return its index.
 ```java
 // Find i, nums[i-1] < x <= nums[i]
